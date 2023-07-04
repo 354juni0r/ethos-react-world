@@ -28,14 +28,6 @@ export const Home = () => {
             </div>
 
             <div className="card">
-              <div className="card-header">
-                <div className="container-fluid">
-                  <h4 className="m-0 nama">Report Sales Monthly</h4>
-                </div>
-              </div>
-            </div>
-
-            <div className="card">
               <Charts />
             </div>
           </div>

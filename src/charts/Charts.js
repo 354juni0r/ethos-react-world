@@ -69,8 +69,21 @@ const Charts = () => {
         ],
       };
   return (
-    <div>
-      <Bar options={options} data={data} />
+    <div className='card'>
+      <div className='card-header'>
+        <div className=''>
+          <div>
+            <h4 className='m-0 nama'>Report Sales Monthly</h4>
+            <p className='nama'>Last Update: <b>Saturday, 29 April 2023</b></p>
+          </div>
+          <ul>
+            <li><button>Total</button></li>
+          </ul>
+        </div>
+      </div>
+      <div className='card-body'>
+        <Bar options={options} data={data} />
+      </div>
     </div>
   )
 }
