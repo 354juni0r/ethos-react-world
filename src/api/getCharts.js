@@ -1,9 +1,10 @@
 import axios from "./axios"
+import { baseURL } from "./endpoint";
 
 const getCharts = async () => {
-    const baseURL = "http://localhost:3030/Charts"
+    
 
-    const {data} = await axios.get(baseURL)
+    const {data} = await axios.get(`${baseURL}/Charts1`)
     return data;
 
 }
