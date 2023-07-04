@@ -87,7 +87,7 @@ const BuatPesan = () => {
             <div className="col-md-9">
             <div className="card card-outline">
                 <div className="card-header">
-                    <h3 class="card-title"><a onClick={goBack} className='fas fa-arrow-left' /> <i className='fas fa-edit'> Pesan Baru</i></h3>
+                    <h3 className="card-title"><a onClick={goBack} className='fas fa-arrow-left' /> <i className='fas fa-edit'> Pesan Baru</i></h3>
                 </div>
 
                 <div className="card-body">
