@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../src/api/getCharts'
+import getCharts from '../api/getCharts'
 import {
     Chart as ChartJS,
     CategoryScale,
