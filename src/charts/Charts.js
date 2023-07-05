@@ -6,6 +6,9 @@ import {
     CategoryScale,
     LinearScale,
     BarElement,
+    LineController,
+    LineElement,
+    PointElement,
     Title,
     Tooltip,
     Legend,
@@ -16,6 +19,10 @@ import {
     CategoryScale,
     LinearScale,
     BarElement,
+    LinearScale,
+    LineController,
+    LineElement,
+    PointElement,
     Title,
     Tooltip,
     Legend
@@ -27,15 +34,8 @@ export const options = {
       legend: {
         position: 'bottom',
       },
-      title: {
-        display: true,
-        text: 'Target Pencapaian Total Revenue Online Sales',
-      },
     },
   };
-
-//   const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  
 
 const Charts = () => {
     const [dataChart, setChart] = useState(null);
@@ -55,17 +55,39 @@ const Charts = () => {
       }, []);
 
       const data = {
-        type : "bar",
         datasets: [
           {
-            label: 'Internal',
+            label: 'Target',
             data: dataChart,
             backgroundColor: "#619A3F",
+            type: "bar"
           },
           {
-            label: 'Partner',
+            label: 'Omset',
             data: dataChart,
             backgroundColor: "#FF9E1D",
+            type: "bar"
+          },
+          {
+            label: 'Kumulatif Target',
+            data: dataChart,
+            backgroundColor: "#BABABA",
+            borderColor: "#BABABA",
+            type: "line",
+          },
+          {
+            label: 'Kumulatif Omset',
+            data: dataChart,
+            backgroundColor: "#FFD59D",
+            borderColor: "#FFD59D",
+            type: "line",
+          },
+          {
+            label: 'Selisih Kumulatif Target dan Omset',
+            data: dataChart,
+            backgroundColor: "#B0CD9F",
+            borderColor: "#B0CD9F",
+            type: "line",
           },
         ],
       };
@@ -102,45 +124,54 @@ const Charts = () => {
           </div>
           </div>
         </div>
-        <div className='row'>
-          <div className="card card-success">
-            <div className="card-header">
-              <p className="card-title">Omset Sampai Last Update</p>
+        <div className='form-group'>
+          <div className='row'>
+            <div className='col-md-3'>
+              <div className="card card-success">
+                <div className="card-header">
+                  <p className="card-title">Omset Sampai Last Update</p>
+                </div>
+                <div className="card-body">
+                  The body of the card
+                </div>
+              </div>
             </div>
-            <div className="card-body">
-              The body of the card
+            <div className='col-md-3'>
+              <div className="card card-success">
+                <div className="card-header">
+                  <p className="card-title">Perkiraan Omset Akhir Bulan</p>
+                </div>
+                <div className="card-body">
+                  The body of the card
+                </div>
+              </div>
             </div>
-          </div>
-          
-          <div className="card card-success">
-            <div className="card-header">
-              <p className="card-title">Perkiraan Omset Akhir Bulan</p>
+            <div className='col-md-3'>
+              <div className="card card-success">
+                <div className="card-header">
+                  <p className="card-title">Selisih Kumulatif Target & Omset</p>
+                </div>
+                <div className="card-body">
+                  The body of the card
+                </div>
+              </div>
             </div>
-            <div className="card-body">
-              The body of the card
-            </div>
-          </div>
-
-          <div className="card card-success">
-            <div className="card-header">
-              <p className="card-title">Selisih Kumulatif Target & Omset</p>
-            </div>
-            <div className="card-body">
-              The body of the card
-            </div>
-          </div>
-
-          <div className="card card-success">
-            <div className="card-header">
-              <p className="card-title">Kekurangan Target</p>
-            </div>
-            <div className="card-body">
-              The body of the card
+            <div className='col-md-3'>            
+              <div className="card card-success">
+                <div className="card-header">
+                  <p className="card-title">Kekurangan Target</p>
+                </div>
+                <div className="card-body">
+                  The body of the card
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className='card-body'>
+      <div className='card-body d-flex flex-column align-items-center'>
+        <h3>Target Pencapaian Total Revenue Online Sales</h3>
+        <i className='nama'>*Sales April menggunakan proyeksi total sales akhir bulan</i>
         <Bar options={options} data={data} />
       </div>
     </div>

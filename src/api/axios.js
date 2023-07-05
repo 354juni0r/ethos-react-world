@@ -2,6 +2,6 @@ import axios from "axios";
 
 
 export default axios.create({
-    baseURL:'https://staging-api-edms.ethos.co.id/api/ethos/production/login'
-
+    baseURL: process.env.REACT_APP_API_PROD
+    
 });
