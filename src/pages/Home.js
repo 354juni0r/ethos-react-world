@@ -20,6 +20,15 @@ import {
   Legend,
 } from 'chart.js';
 import ChartsInternal from '../charts/chartsInternal/charts';
+import ChartsInternal2 from '../charts/chartsInternal/charts2';
+import ChartsInternal3 from '../charts/chartsInternal/charts3';
+import ChartsInternal4 from '../charts/chartsInternal/charts4';
+import ChartsInternal5 from '../charts/chartsInternal/charts5';
+import ChartsInternal6 from '../charts/chartsInternal/charts6';
+import ChartsInternal7 from '../charts/chartsInternal/charts7';
+import ChartsInternal8 from '../charts/chartsInternal/charts8';
+import ChartsInternal9 from '../charts/chartsInternal/charts9';
+import ChartsInternal10 from '../charts/chartsInternal/charts10';
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -150,6 +159,15 @@ export const Home = () => {
 
                   <div className="tab-pane fade" id="custom-tabs-four-internal" role="tabpanel" aria-labelledby="custom-tabs-four-internal-tab">
                     <ChartsInternal />
+                    <ChartsInternal2 />
+                    <ChartsInternal3 />
+                    <ChartsInternal4 />
+                    <ChartsInternal5 />
+                    <ChartsInternal6 />
+                    <ChartsInternal7 />
+                    <ChartsInternal8 />
+                    <ChartsInternal9 />
+                    <ChartsInternal10 />
                   </div>
 
                   <div className="tab-pane fade" id="custom-tabs-four-partner" role="tabpanel" aria-labelledby="custom-tabs-four-partner-tab">
