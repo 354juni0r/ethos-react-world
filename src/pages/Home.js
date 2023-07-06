@@ -1,9 +1,10 @@
 import React from 'react';
-import Charts from '../charts/Charts';
-import Charts2 from '../charts/Charts2';
-import Charts3 from '../charts/Charts3';
-import Charts4 from '../charts/Charts4';
-import Charts5 from '../charts/Charts5';
+import Charts from '../charts/chartsTotal/charts';
+import Charts2 from '../charts/chartsTotal/charts2';
+import Charts3 from '../charts/chartsTotal/charts3';
+import Charts4 from '../charts/chartsTotal/charts4';
+import Charts5 from '../charts/chartsTotal/charts5';
+import Charts6 from '../charts/chartsTotal/charts6';
 import Select from 'react-select'
 import {
   Chart as ChartJS,
@@ -18,7 +19,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import Charts6 from '../charts/Charts6';
+import ChartsInternal from '../charts/chartsInternal/charts';
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -73,13 +74,13 @@ export const Home = () => {
                   </div>
                   <div className='col-md-6'>
                   <ul className='nav' role='tablist' id="custom-tabs-four-tab">
-                    <li><button className='btn bg-light btn-xs' id="custom-tabs-four-home-tab" data-toggle="pill" href="#custom-tabs-four-home" role="tab" aria-controls="custom-tabs-four-home" aria-selected="true"><span className='nama'>Total</span></button></li>
-                    <li><button className='btn bg-light btn-xs' id="custom-tabs-four-profile-tab" data-toggle="pill" href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile" aria-selected="false"><span className='nama'>Internal</span></button></li>
-                    <li><button className='btn bg-light btn-xs'><span className='nama'>Partner</span></button></li>
-                    <li><button className='btn bg-light btn-xs'><span className='nama'>Offline</span></button></li>
-                    <li><button className='btn bg-light btn-xs'><span className='nama'>Cost Iklan</span></button></li>
-                    <li><button className='btn bg-light btn-xs'><span className='nama'>Manpower</span></button></li>
-                    <li><button className='btn bg-light btn-xs'><span className='nama'>Stock</span></button></li>
+                    <li className='nav-item'><button className='btn bg-light btn-xs active' id="custom-tabs-four-total-tab" data-toggle="pill" href="#custom-tabs-four-total" role="tab" aria-controls="custom-tabs-four-total" aria-selected="true"><span className='nama'>Total</span></button></li>
+                    <li className='nav-item'><button className='btn bg-light btn-xs' id="custom-tabs-four-internal-tab" data-toggle="pill" href="#custom-tabs-four-internal" role="tab" aria-controls="custom-tabs-four-internal" aria-selected="false"><span className='nama'>Internal</span></button></li>
+                    <li className='nav-item'><button className='btn bg-light btn-xs' id="custom-tabs-four-partner-tab" data-toggle="pill" href="#custom-tabs-four-partner" role="tab" aria-controls="custom-tabs-four-partner" aria-selected="false"><span className='nama'>Partner</span></button></li>
+                    <li className='nav-item'><button className='btn bg-light btn-xs' id="custom-tabs-four-offline-tab" data-toggle="pill" href="#custom-tabs-four-offline" role="tab" aria-controls="custom-tabs-four-offline" aria-selected="false"><span className='nama'>Offline</span></button></li>
+                    <li className='nav-item'><button className='btn bg-light btn-xs' id="custom-tabs-four-costiklan-tab" data-toggle="pill" href="#custom-tabs-four-costiklan" role="tab" aria-controls="custom-tabs-four-costiklan" aria-selected="false"><span className='nama'>Cost Iklan</span></button></li>
+                    <li className='nav-item'><button className='btn bg-light btn-xs' id="custom-tabs-four-manpower-tab" data-toggle="pill" href="#custom-tabs-four-manpower" role="tab" aria-controls="custom-tabs-four-manpower" aria-selected="false"><span className='nama'>Manpower</span></button></li>
+                    <li className='nav-item'><button className='btn bg-light btn-xs' id="custom-tabs-four-stock-tab" data-toggle="pill" href="#custom-tabs-four-stock" role="tab" aria-controls="custom-tabs-four-stock" aria-selected="false"><span className='nama'>Stock</span></button></li>
                   </ul>
                   <div className=''>
                   <Select 
@@ -138,7 +139,7 @@ export const Home = () => {
 
               <div className='card-body'>
                 <div className='tab-content' id="custom-tabs-four-tabContent">
-                  <div id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+                  <div className="tab-pane fade show active" id="custom-tabs-four-total" role="tabpanel" aria-labelledby="custom-tabs-four-total-tab">
                     <Charts />
                     <Charts2 />
                     <Charts3 />
@@ -147,13 +148,28 @@ export const Home = () => {
                     <Charts6 />
                   </div>
 
-                  <div id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                    <Charts />
-                    <Charts2 />
-                    <Charts3 />
-                    <Charts4 />
-                    <Charts5 />
-                    <Charts6 />
+                  <div className="tab-pane fade" id="custom-tabs-four-internal" role="tabpanel" aria-labelledby="custom-tabs-four-internal-tab">
+                    <ChartsInternal />
+                  </div>
+
+                  <div className="tab-pane fade" id="custom-tabs-four-partner" role="tabpanel" aria-labelledby="custom-tabs-four-partner-tab">
+                    Partner
+                  </div>
+
+                  <div className="tab-pane fade" id="custom-tabs-four-offline" role="tabpanel" aria-labelledby="custom-tabs-four-offline-tab">
+                    Offline
+                  </div>
+
+                  <div className="tab-pane fade" id="custom-tabs-four-costiklan" role="tabpanel" aria-labelledby="custom-tabs-four-costiklan-tab">
+                    Cost Iklan
+                  </div>
+
+                  <div className="tab-pane fade" id="custom-tabs-four-manpower" role="tabpanel" aria-labelledby="custom-tabs-four-manpower-tab">
+                    Manpower
+                  </div>
+
+                  <div className="tab-pane fade" id="custom-tabs-four-stock" role="tabpanel" aria-labelledby="custom-tabs-four-stock-tab">
+                    Stock
                   </div>
                 </div>
               </div>

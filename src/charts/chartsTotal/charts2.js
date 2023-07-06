@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../api/getCharts'
-  import { Bar } from 'react-chartjs-2';
+import getCharts from '../../api/getCharts'
+import { Bar } from 'react-chartjs-2';
 
 
-export const options = {
+const options = {
     responsive: true,
     staccked: true,
     plugins: {
