@@ -1,34 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import getCharts from '../api/getCharts'
 import Select from 'react-select'
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    LineController,
-    LineElement,
-    PointElement,
-    Title,
-    Tooltip,
-    Legend,
-  } from 'chart.js';
-  import { Bar } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    LinearScale,
-    LineController,
-    LineElement,
-    PointElement,
-    Title,
-    Tooltip,
-    Legend
-  );
-
-export const options = {
+ const options = {
     responsive: true,
     staccked: true,
     plugins: {

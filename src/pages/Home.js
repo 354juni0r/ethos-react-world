@@ -3,6 +3,34 @@ import Charts from '../charts/Charts';
 import Charts2 from '../charts/Charts2';
 import Charts3 from '../charts/Charts3';
 import Charts4 from '../charts/Charts4';
+import Charts5 from '../charts/Charts5';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  LineController,
+  LineElement,
+  PointElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import Charts6 from '../charts/Charts6';
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  LinearScale,
+  LineController,
+  LineElement,
+  PointElement,
+  ArcElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 export const Home = () => {
   return (
@@ -35,6 +63,8 @@ export const Home = () => {
               <Charts2 />
               <Charts3 />
               <Charts4 />
+              <Charts5 />
+              <Charts6 />
             </div>
           </div>
         </section >
