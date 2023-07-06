@@ -1,5 +1,8 @@
 import React from 'react';
 import Charts from '../charts/Charts';
+import Charts2 from '../charts/Charts2';
+import Charts3 from '../charts/Charts3';
+import Charts4 from '../charts/Charts4';
 
 export const Home = () => {
   return (
@@ -29,6 +32,9 @@ export const Home = () => {
 
             <div className="card">
               <Charts />
+              <Charts2 />
+              <Charts3 />
+              <Charts4 />
             </div>
           </div>
         </section >
