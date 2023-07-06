@@ -134,7 +134,9 @@ const Charts3 = () => {
             </div>
         </div>
 
-        <Bar options={options} data={data} />
+        <div className='container row form-group'>
+          <Bar options={options} data={data} />
+        </div>
       </div>
     </div>
   )

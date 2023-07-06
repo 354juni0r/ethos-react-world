@@ -80,11 +80,11 @@ const Charts6= () => {
             <i className='nama'>*Sales Maret (Internal & Partner) menggunakan perkiraan omset sampai akhir bulan, Distributor & Offline data real</i>
         </div>
 
-        <div className='container form-group row'>
-            <div className='card col-md-12'>
+        <div className='container form-group '>
+            <div className=''>
                 <Bar options={options} data={data} />
             </div>
-            <div className='col-md-12 text-xs'>
+            <div className=' text-xs'>
                 <table className="table table-bordered table-sm">
                 <thead className='bg-success'>
                     <tr>

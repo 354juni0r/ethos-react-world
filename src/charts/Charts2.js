@@ -70,9 +70,14 @@ const Charts2 = () => {
   return (
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
-        <h3>Revenue Online Sales Internal vs Partner</h3>
-        <i className='nama'>*Sales April menggunakan proyeksi total sales akhir bulan</i>
-        <Bar options={options} data={data} />
+        <div className='container form-group text-center'>
+          <h3>Revenue Online Sales Internal vs Partner</h3>
+          <i className='nama'>*Sales April menggunakan proyeksi total sales akhir bulan</i>
+        </div>
+
+        <div className='container form-group row'>
+          <Bar options={options} data={data} />
+        </div>
       </div>
     </div>
   )
