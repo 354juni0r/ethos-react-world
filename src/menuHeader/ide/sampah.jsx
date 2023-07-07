@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavLink, Link } from "react-router-dom";
-import DataMemo from "../Memo/DataMemo";
+import DataMemo from '../memo/dataMemo';
+import { Link } from 'react-router-dom';
 
 const Sampah = () => {
   return (
@@ -11,7 +11,7 @@ const Sampah = () => {
             <div className="container-fluid">
             <div className="row mb-2">
                 <div className="col-sm-6">
-                <h1 className='nama'>Pesan</h1>
+                <h1 className='nama'>Ide</h1>
                 </div>
             </div>
             </div>
@@ -23,15 +23,15 @@ const Sampah = () => {
         <section className="content">
             <div className="row">
             <div className="col-md-3">
-                <a href="/pesan/buatpesan" className="btn btn-primary btn-block mb-3">
-                Buat Pesan
-                </a>
+                <Link to="/Ide/buatide" className="btn btn-primary btn-block mb-3">
+                Buat Ide
+                </Link>
                 <div className="card">
                     <div className="card-header-green p-1">
                       <ul className="nav nav-pills2 flex-column">
                         <li className="nav-item active">
-                          <Link to="/pesan" className="nav-link">
-                            <i className="fas fa-inbox" /> Kotak Masuk
+                          <Link to="/Ide" className="nav-link">
+                            <i className="fas fa-lightbulb" /> Ruang Ide
                             <span className="badge bg-primary float-right">12</span>
                           </Link>
                         </li>
@@ -41,29 +41,24 @@ const Sampah = () => {
                     <div className='card-body p-0'>
                       <ul className="nav nav-pills flex-column">
                         <li className="nav-item">
-                          <Link to="/pesan/berbintang" className="nav-link">
+                          <Link to="/Ide/berbintang" className="nav-link">
                             <i className="fas fa-star" /> Berbintang
                             {/* <span className="badge bg-primary float-right">12</span> */}
                           </Link>
                         </li>
                         <li className="nav-item">
-                          <Link to="/pesan/terkirim" className="nav-link">
-                            <i className="fas fa-paper-plane" /> Terkirim
+                          <Link to="/Ide/berbagiide" className="nav-link">
+                            <i className="fas fa-users" /> Berbagi Ide
                           </Link>
                         </li>
                         <li className="nav-item">
-                          <Link to="/pesan/draft" className="nav-link">
-                            <i className="fas fa-file-alt" /> Draft
+                          <Link to="/Ide/arsip" className="nav-link">
+                            <i className="fas fa-archive" /> Arsip
                             <span className="badge bg-primary float-right">14</span>
                           </Link>
                         </li>
                         <li className="nav-item">
-                          <Link to="/pesan/arsip" className="nav-link">
-                            <i className="fas fa-archive" /> Arsip
-                          </Link>
-                        </li>
-                        <li className="nav-item">
-                          <Link to="/pesan/sampah" className="nav-link">
+                          <Link to="/Ide/sampah" className="nav-link">
                             <i className="fas fa-trash-alt" /> Sampah
                           </Link>
                         </li>
@@ -74,16 +69,9 @@ const Sampah = () => {
 
             {/* Multi Tabs */}
             <div className="col-md-9">
-            <div className="card card-success card-outline card-outline-tabs">
-                <div className="card-header p-0 pt-0">
-                <ul className="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
-                    <li className="nav-item">
-                    <a className="nav-link active" id="custom-tabs-one-pesan-tab" data-toggle="pill" href="#custom-tabs-one-pesan" role="tab" aria-controls="custom-tabs-one-pesan" aria-selected="true">{" "}<i className="fas fa-envelope" />Pesan</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" id="custom-tabs-one-memo-tab" data-toggle="pill" href="#custom-tabs-one-memo" role="tab" aria-controls="custom-tabs-one-memo" aria-selected="false">{" "}<i className="fas fa-book" />Memo</a>
-                    </li>
-                    <li className='col-5' />
+            <div className="card card-outline">
+                <div className="card-header">
+                    <h3 className="card-title fas fa-trash-alt" > Sampah</h3>
                     <div className="card-tools">
                         <div className="input-group input-group-sm">
                             <input type="text" className="form-control" placeholder="Search Mail" />
@@ -94,8 +82,7 @@ const Sampah = () => {
                             </div>
                         </div>
                     </div>
-                </ul>
-            </div>
+                </div>
 
                 <div className="card-body">
                 <div className="tab-content" id="custom-tabs-one-tabContent">

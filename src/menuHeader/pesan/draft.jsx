@@ -1,8 +1,8 @@
 import React from 'react'
-import DataMemo from '../Memo/DataMemo';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from "react-router-dom";
+import DataMemo from "../memo/dataMemo";
 
-const Berbintang = () => {
+const Draft = () => {
   return (
     <>
       <div className='content-wrapper'>
@@ -11,7 +11,7 @@ const Berbintang = () => {
             <div className="container-fluid">
             <div className="row mb-2">
                 <div className="col-sm-6">
-                <h1 className='nama'>Ide</h1>
+                <h1 className='nama'>Pesan</h1>
                 </div>
             </div>
             </div>
@@ -23,15 +23,15 @@ const Berbintang = () => {
         <section className="content">
             <div className="row">
             <div className="col-md-3">
-                <Link to="/Ide/buatide" className="btn btn-primary btn-block mb-3">
-                Buat Ide
-                </Link>
+                <a href="/pesan/buatpesan" className="btn btn-primary btn-block mb-3">
+                Buat Pesan
+                </a>
                 <div className="card">
                     <div className="card-header-green p-1">
                       <ul className="nav nav-pills2 flex-column">
                         <li className="nav-item active">
-                          <Link to="/Ide" className="nav-link">
-                            <i className="fas fa-lightbulb" /> Ruang Ide
+                          <Link to="/pesan" className="nav-link">
+                            <i className="fas fa-inbox" /> Kotak Masuk
                             <span className="badge bg-primary float-right">12</span>
                           </Link>
                         </li>
@@ -41,24 +41,29 @@ const Berbintang = () => {
                     <div className='card-body p-0'>
                       <ul className="nav nav-pills flex-column">
                         <li className="nav-item">
-                          <Link to="/Ide/berbintang" className="nav-link">
+                          <Link to="/pesan/berbintang" className="nav-link">
                             <i className="fas fa-star" /> Berbintang
                             {/* <span className="badge bg-primary float-right">12</span> */}
                           </Link>
                         </li>
                         <li className="nav-item">
-                          <Link to="/Ide/berbagiide" className="nav-link">
-                            <i className="fas fa-users" /> Berbagi Ide
+                          <Link to="/pesan/terkirim" className="nav-link">
+                            <i className="fas fa-paper-plane" /> Terkirim
                           </Link>
                         </li>
                         <li className="nav-item">
-                          <Link to="/Ide/arsip" className="nav-link">
-                            <i className="fas fa-archive" /> Arsip
+                          <Link to="/pesan/draft" className="nav-link">
+                            <i className="fas fa-file-alt" /> Draft
                             <span className="badge bg-primary float-right">14</span>
                           </Link>
                         </li>
                         <li className="nav-item">
-                          <Link to="/Ide/sampah" className="nav-link">
+                          <Link to="/pesan/arsip" className="nav-link">
+                            <i className="fas fa-archive" /> Arsip
+                          </Link>
+                        </li>
+                        <li className="nav-item">
+                          <Link to="/pesan/sampah" className="nav-link">
                             <i className="fas fa-trash-alt" /> Sampah
                           </Link>
                         </li>
@@ -71,7 +76,7 @@ const Berbintang = () => {
             <div className="col-md-9">
             <div className="card card-outline">
                 <div className="card-header">
-                    <h3 className="card-title fas fa-star"> Berbintang</h3>
+                    <h3 class="card-title fas fa-file-alt"> Draft</h3>
                     <div className="card-tools">
                         <div className="input-group input-group-sm">
                             <input type="text" className="form-control" placeholder="Search Mail" />
@@ -303,4 +308,4 @@ const Berbintang = () => {
   )
 }
 
-export default Berbintang
+export default Draft

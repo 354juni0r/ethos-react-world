@@ -29,6 +29,11 @@ import ChartsInternal7 from '../charts/chartsInternal/charts7';
 import ChartsInternal8 from '../charts/chartsInternal/charts8';
 import ChartsInternal9 from '../charts/chartsInternal/charts9';
 import ChartsInternal10 from '../charts/chartsInternal/charts10';
+import ChartsInternal11 from '../charts/chartsInternal/charts11';
+import ChartsInternal12 from '../charts/chartsInternal/charts12';
+import ChartsInternal13 from '../charts/chartsInternal/charts13';
+import ChartsInternal14 from '../charts/chartsInternal/charts14';
+import ChartsInternal15 from '../charts/chartsInternal/charts15';
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -168,6 +173,11 @@ export const Home = () => {
                     <ChartsInternal8 />
                     <ChartsInternal9 />
                     <ChartsInternal10 />
+                    <ChartsInternal11 />
+                    <ChartsInternal12 />
+                    <ChartsInternal13 />
+                    <ChartsInternal14 />
+                    <ChartsInternal15 />
                   </div>
 
                   <div className="tab-pane fade" id="custom-tabs-four-partner" role="tabpanel" aria-labelledby="custom-tabs-four-partner-tab">

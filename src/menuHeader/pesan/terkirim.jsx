@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink, Link } from "react-router-dom";
-import DataMemo from "../Memo/DataMemo";
+import DataMemo from "../memo/dataMemo";
 
-const Berbintang = () => {
+const Terkirim = () => {
   return (
     <>
       <div className='content-wrapper'>
@@ -74,16 +74,9 @@ const Berbintang = () => {
 
             {/* Multi Tabs */}
             <div className="col-md-9">
-            <div className="card card-success card-outline card-outline-tabs">
-                <div className="card-header p-0 pt-0">
-                <ul className="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
-                    <li className="nav-item">
-                    <a className="nav-link active" id="custom-tabs-one-pesan-tab" data-toggle="pill" href="#custom-tabs-one-pesan" role="tab" aria-controls="custom-tabs-one-pesan" aria-selected="true">{" "}<i className="fas fa-envelope" />Pesan</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" id="custom-tabs-one-memo-tab" data-toggle="pill" href="#custom-tabs-one-memo" role="tab" aria-controls="custom-tabs-one-memo" aria-selected="false">{" "}<i className="fas fa-book" />Memo</a>
-                    </li>
-                    <li className='col-5' />
+            <div className="card card-outline">
+                <div className="card-header">
+                    <h3 class="card-title fas fa-paper-plane"> Terkirim</h3>
                     <div className="card-tools">
                         <div className="input-group input-group-sm">
                             <input type="text" className="form-control" placeholder="Search Mail" />
@@ -94,8 +87,7 @@ const Berbintang = () => {
                             </div>
                         </div>
                     </div>
-                </ul>
-            </div>
+                </div>
 
                 <div className="card-body">
                 <div className="tab-content" id="custom-tabs-one-tabContent">
@@ -316,4 +308,4 @@ const Berbintang = () => {
   )
 }
 
-export default Berbintang
+export default Terkirim

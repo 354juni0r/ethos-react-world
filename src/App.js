@@ -1,31 +1,31 @@
 
-import Header from './components/Header';
+import Header from './components/header';
 
-import memo from './Memo/index';
-import pesan from './pesan/index';
-import addmemo from './Memo/tambahmemo';
-import ide from './Ide/index';
-import project from './project/index'
-import agenda from './agenda/index';
-import aktifitas from './aktifitas/index';
-import meeting from './meeting/index';
-import Sidebar  from './components/Sidebar';
-import Footer from './components/Footer';
-import {Home} from './pages/Home';
+import memo from '../src/menuHeader/memo/index';
+import pesan from '../src/menuHeader/pesan/index';
+import addmemo from '../src/menuHeader/memo/tambahmemo';
+import ide from '../src/menuHeader/ide/index';
+import project from '../src/menuHeader/project/index'
+import agenda from '../src/menuHeader/agenda/index';
+import aktifitas from '../src/menuHeader/aktifitas/index';
+import meeting from '../src/menuHeader/meeting/index';
+import Sidebar  from './components/sidebar';
+import Footer from './components/footer';
+import {Home} from './pages/home';
 import Login from './login/login';
 
 import { Routes, Route } from 'react-router-dom';
-import Berbintang from './pesan/Berbintang';
-import Terkirim from './pesan/Terkirim';
-import Draft from './pesan/Draft';
-import Arsip from './pesan/Arsip';
-import Sampah from './pesan/Sampah';
-import BuatPesan from './pesan/BuatPesan';
-import ArsipIde from './Ide/Arsip';
-import BerbagiIde from './Ide/BerbagiIde';
-import BerbintangIde from './Ide/Berbintang';
-import BuatIde from './Ide/BuatIde';
-import SampahIde from './Ide/Sampah';
+import Berbintang from '../src/menuHeader/pesan/berbintang';
+import Terkirim from '../src/menuHeader/pesan/terkirim';
+import Draft from '../src/menuHeader/pesan/draft';
+import Arsip from '../src/menuHeader/pesan/arsip';
+import Sampah from '../src/menuHeader/pesan/sampah';
+import BuatPesan from '../src/menuHeader/pesan/buatPesan';
+import ArsipIde from '../src/menuHeader/ide/arsip';
+import BerbagiIde from '../src/menuHeader/ide/berbagiIde';
+import BerbintangIde from '../src/menuHeader/ide/berbintang';
+import BuatIde from '../src/menuHeader/ide/buatIde';
+import SampahIde from '../src/menuHeader/ide/sampah';
 
 function App() {
   return (

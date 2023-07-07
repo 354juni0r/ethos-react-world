@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from "react-router-dom";
-import menuData from "../data/MenuData";
+import menuData from "../../src/menuHeader/data/menuData";
 function Header() {
   return (
     <>

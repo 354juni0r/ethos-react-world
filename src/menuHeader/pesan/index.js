@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, Link } from "react-router-dom";
-import DataMemo from "../Memo/DataMemo";
+import DataMemo from "../memo/dataMemo";
 
 const Index = () => {
     return (

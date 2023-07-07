@@ -1,9 +1,9 @@
-import React from 'react'
-import DataMemo from '../Memo/DataMemo';
+import React, { memo } from 'react'
+import DataMemo from '../memo/dataMemo';
 import { Link } from 'react-router-dom';
 
-const BerbagiIde = () => {
-  return (
+function Index () {
+  return(
     <>
       <div className='content-wrapper'>
         {/* Content Header */}
@@ -71,7 +71,7 @@ const BerbagiIde = () => {
             <div className="col-md-9">
             <div className="card card-outline">
                 <div className="card-header">
-                    <h3 className="card-title fas fa-star"> Berbagi Ide</h3>
+                    <h3 className="card-title fas fa-lightbulb"> Ruang Ide</h3>
                     <div className="card-tools">
                         <div className="input-group input-group-sm">
                             <input type="text" className="form-control" placeholder="Search Mail" />
@@ -303,4 +303,4 @@ const BerbagiIde = () => {
   )
 }
 
-export default BerbagiIde
+export default Index

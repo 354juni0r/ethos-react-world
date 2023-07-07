@@ -2,7 +2,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import addmemo from "./tambahmemo";
-import DataMemo from "./DataMemo";
+import DataMemo from "../../../src/menuHeader/memo/dataMemo";
 const Index = () => {
   return (
     <>
