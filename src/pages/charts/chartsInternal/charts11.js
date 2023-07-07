@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../api/getCharts'
+import getCharts from '../../../api/getCharts'
 import { Bar } from 'react-chartjs-2';
 
 const options = {
@@ -11,7 +11,7 @@ const options = {
     },
   };
 
-const ChartsInternal4 = () => {
+const ChartsInternal11 = () => {
     const [dataChart, setChart] = useState(null);
     useEffect(() => {
         if (sessionStorage.getItem("chart")) {
@@ -29,26 +29,22 @@ const ChartsInternal4 = () => {
       }, []);
 
       const data = {
+        labels: ["Chocolate", "Vanilla", "Strawberry"],
         datasets: [
+          {
+            label: 'Target',
+            data: dataChart,
+            backgroundColor: "#619A3F",
+          },
           {
             label: 'Omset',
             data: dataChart,
-            backgroundColor: "#619A3F",
-            type: "bar"
-          },
-          {
-            label: 'Target Omset',
-            data: dataChart,
-            backgroundColor: "#9C9C9C",
-            borderColor: "#9C9C9C",
-            type: "line",
-          },
-          {
-            label: 'Daily Average Omset',
-            data: dataChart,
             backgroundColor: "#FF9E1D",
-            borderColor: "#FF9E1D",
-            type: "line",
+          },
+          {
+            label: 'Omset',
+            data: dataChart,
+            backgroundColor: "#D9E021",
           },
         ],
       };
@@ -56,7 +52,7 @@ const ChartsInternal4 = () => {
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
         <div className='container form-group text-center'>
-          <h3>Pencapaian Akuisisi Internal By Omset</h3>
+          <h3>Omset Akuisisi Per Channel</h3>
           <i className='nama'>*Sales April menggunakan proyeksi total sales akhir bulan</i>
         </div>
         
@@ -68,4 +64,4 @@ const ChartsInternal4 = () => {
   )
 }
 
-export default ChartsInternal4
+export default ChartsInternal11

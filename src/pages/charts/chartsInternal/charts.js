@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../api/getCharts'
+import getCharts from '../../../api/getCharts'
 import { Bar } from 'react-chartjs-2';
 
 const options = {

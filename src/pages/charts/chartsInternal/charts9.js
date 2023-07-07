@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../api/getCharts'
+import getCharts from '../../../api/getCharts'
 import Select from 'react-select'
 import { Bar } from 'react-chartjs-2';
 
@@ -21,7 +21,7 @@ const options = {
       },
   };
 
-const ChartsInternal10 = () => {
+const ChartsInternal9 = () => {
     const [dataChart, setChart] = useState(null);
     useEffect(() => {
         if (sessionStorage.getItem("chart")) {
@@ -148,11 +148,47 @@ const ChartsInternal10 = () => {
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
       <div className='container row form-group'>
-            <div className='col-md-10 text-center'>
-              <h3>Detail Rata-rata Quantity Harian Internal By SKU (Per Channel)</h3>
-              <Bar options={options} data={data} />
+            <div className='col-md-2'></div>
+            <div className='col-md-8 text-center'>
+                <h3>Sales Internal By Omset SKU Per Channel</h3>
+                <i className='nama'>*Belum dikurangi return, sales April menggunakan perkiraan sales akhir bulan</i>
             </div>
+            <div className='col-md-2'>
+                <select className="form-control">
+                    <option>By Omset</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                </select>
+            </div>
+        </div>
+        
+        <div className='container row form-group'>
+            <div className='col-md-6'>
+                <h6 className='nama'>CHANNEL</h6>
+                <Select options={selectOptions} placeholder="Kepada:" 
+                    isMulti
+                    name="colors"
+                    className="basic-multi-select"
+                    classNamePrefix="select" 
+                />
+            </div>
+            <div className='col-md-6'>
+                <h6 className='nama'>SKU</h6>
+                <Select options={selectOptions} placeholder="Kepada:" 
+                    isMulti
+                    name="colors"
+                    className="basic-multi-select"
+                    classNamePrefix="select" 
+                />
+            </div>
+        </div>
 
+        <div className='container form-group row'>
+            <div className='col-md-10 d-flex align-items-end'>
+                <Bar options={options} data={data} />
+            </div>
             <div className='col-md-2 text-xs'>
                 <div className='col nama'>
                   <h6>Sales Bulan April</h6>
@@ -231,18 +267,13 @@ const ChartsInternal10 = () => {
                     <td>100</td>
                     </tr>
                 </tbody>
-                <thead className='bg-success'>
-                    <tr>
-                    <th>Total</th>
-                    <th>550000</th>
-                    </tr>
-                </thead>
                 </table>
             </div>
+
         </div>
       </div>
     </div>
   )
 }
 
-export default ChartsInternal10
+export default ChartsInternal9

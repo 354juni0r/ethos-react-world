@@ -1,10 +1,4 @@
 import React from 'react';
-import Charts from '../charts/chartsTotal/charts';
-import Charts2 from '../charts/chartsTotal/charts2';
-import Charts3 from '../charts/chartsTotal/charts3';
-import Charts4 from '../charts/chartsTotal/charts4';
-import Charts5 from '../charts/chartsTotal/charts5';
-import Charts6 from '../charts/chartsTotal/charts6';
 import Select from 'react-select'
 import {
   Chart as ChartJS,
@@ -19,21 +13,27 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import ChartsInternal from '../charts/chartsInternal/charts';
-import ChartsInternal2 from '../charts/chartsInternal/charts2';
-import ChartsInternal3 from '../charts/chartsInternal/charts3';
-import ChartsInternal4 from '../charts/chartsInternal/charts4';
-import ChartsInternal5 from '../charts/chartsInternal/charts5';
-import ChartsInternal6 from '../charts/chartsInternal/charts6';
-import ChartsInternal7 from '../charts/chartsInternal/charts7';
-import ChartsInternal8 from '../charts/chartsInternal/charts8';
-import ChartsInternal9 from '../charts/chartsInternal/charts9';
-import ChartsInternal10 from '../charts/chartsInternal/charts10';
-import ChartsInternal11 from '../charts/chartsInternal/charts11';
-import ChartsInternal12 from '../charts/chartsInternal/charts12';
-import ChartsInternal13 from '../charts/chartsInternal/charts13';
-import ChartsInternal14 from '../charts/chartsInternal/charts14';
-import ChartsInternal15 from '../charts/chartsInternal/charts15';
+import Charts from '../pages/charts/chartsTotal/charts';
+import Charts2 from '../pages/charts/chartsTotal/charts2';
+import Charts3 from '../pages/charts/chartsTotal/charts3';
+import Charts4 from '../pages/charts/chartsTotal/charts4';
+import Charts5 from '../pages/charts/chartsTotal/charts5';
+import Charts6 from '../pages/charts/chartsTotal/charts6';
+import ChartsInternal from '../pages/charts/chartsInternal/charts';
+import ChartsInternal2 from '../pages/charts/chartsInternal/charts2';
+import ChartsInternal3 from '../pages/charts/chartsInternal/charts3';
+import ChartsInternal4 from '../pages/charts/chartsInternal/charts4';
+import ChartsInternal5 from '../pages/charts/chartsInternal/charts5';
+import ChartsInternal6 from '../pages/charts/chartsInternal/charts6';
+import ChartsInternal7 from '../pages/charts/chartsInternal/charts7';
+import ChartsInternal8 from '../pages/charts/chartsInternal/charts8';
+import ChartsInternal9 from '../pages/charts/chartsInternal/charts9';
+import ChartsInternal10 from '../pages/charts/chartsInternal/charts10';
+import ChartsInternal11 from '../pages/charts/chartsInternal/charts11';
+import ChartsInternal12 from '../pages/charts/chartsInternal/charts12';
+import ChartsInternal13 from '../pages/charts/chartsInternal/charts13';
+import ChartsInternal14 from '../pages/charts/chartsInternal/charts14';
+import ChartsInternal15 from '../pages/charts/chartsInternal/charts15';
 ChartJS.register(
   CategoryScale,
   LinearScale,

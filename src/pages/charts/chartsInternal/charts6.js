@@ -1,26 +1,18 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../api/getCharts'
+import getCharts from '../../../api/getCharts'
 import { Bar } from 'react-chartjs-2';
+import Select from 'react-select'
 
- const options = {
+const options = {
     responsive: true,
-    staccked: true,
     plugins: {
       legend: {
         position: 'bottom',
       },
     },
-    scales: {
-        x: {
-          stacked: true,
-        },
-        y: {
-          stacked: true,
-        },
-      },
   };
 
-const ChartsInternal2 = () => {
+const ChartsInternal6 = () => {
     const [dataChart, setChart] = useState(null);
     useEffect(() => {
         if (sessionStorage.getItem("chart")) {
@@ -48,34 +40,44 @@ const ChartsInternal2 = () => {
           {
             label: 'CRM',
             data: dataChart,
-            backgroundColor: "#FF9E1D",
-            type: "bar"
-          },
-          {
-            label: 'MP',
-            data: dataChart,
             backgroundColor: "#D9E021",
             type: "bar"
           },
           {
-            label: 'Offline',
+            label: 'Rasio',
             data: dataChart,
-            backgroundColor: "#06AAFF",
-            type: "bar"
+            backgroundColor: "#9C9C9C",
+            borderColor: "#9C9C9C",
+            type: "line",
           },
         ],
       };
+
+      const selectOptions = [
+        { value: 'mkahfi', label: 'M. Kahfi' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+      ]
   return (
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
-        <div className='container row form-group'>
-            <div className='col-md-12 text-center'>
-                <h3>Omset Internal Per Channel</h3>
-                <i className='nama'>*Belum dikurangi return, sales April menggunakan perkiraan sales akhir bulan</i>
+        <div className='container form-group row'>
+          <div className='col-md-6 text-center'>
+            <h3>Pencapaian CRM Internal Berdasarkan Omset Akuisisi</h3>
+            <i className='nama'>*Belum dikurangi return, sales April menggunakan sales tanggal terupdate</i>
+          </div>
+          <div className='col-md-6'>
+                <h6 className='nama'>SKU</h6>
+                <Select options={selectOptions} placeholder="Kepada:" 
+                    isMulti
+                    name="colors"
+                    className="basic-multi-select"
+                    classNamePrefix="select" 
+                />
             </div>
         </div>
-
-        <div className='container row form-group'>
+        
+        <div className='container form-group row'>
           <Bar options={options} data={data} />
         </div>
       </div>
@@ -83,4 +85,4 @@ const ChartsInternal2 = () => {
   )
 }
 
-export default ChartsInternal2
+export default ChartsInternal6

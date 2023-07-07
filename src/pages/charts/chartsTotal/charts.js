@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../api/getCharts'
+import getCharts from '../../../api/getCharts'
 import { Bar } from 'react-chartjs-2';
 
 const options = {
@@ -11,7 +11,7 @@ const options = {
     },
   };
 
-const ChartsInternal7 = () => {
+const Charts = () => {
     const [dataChart, setChart] = useState(null);
     useEffect(() => {
         if (sessionStorage.getItem("chart")) {
@@ -31,23 +31,36 @@ const ChartsInternal7 = () => {
       const data = {
         datasets: [
           {
-            label: 'Omset',
+            label: 'Target',
             data: dataChart,
             backgroundColor: "#619A3F",
             type: "bar"
           },
           {
-            label: 'Target Omset',
+            label: 'Omset',
             data: dataChart,
-            backgroundColor: "#9C9C9C",
-            borderColor: "#9C9C9C",
+            backgroundColor: "#FF9E1D",
+            type: "bar"
+          },
+          {
+            label: 'Kumulatif Target',
+            data: dataChart,
+            backgroundColor: "#BABABA",
+            borderColor: "#BABABA",
             type: "line",
           },
           {
-            label: 'Daily Average Omset',
+            label: 'Kumulatif Omset',
             data: dataChart,
-            backgroundColor: "#FF9E1D",
-            borderColor: "#FF9E1D",
+            backgroundColor: "#FFD59D",
+            borderColor: "#FFD59D",
+            type: "line",
+          },
+          {
+            label: 'Selisih Kumulatif Target dan Omset',
+            data: dataChart,
+            backgroundColor: "#B0CD9F",
+            borderColor: "#B0CD9F",
             type: "line",
           },
         ],
@@ -56,7 +69,7 @@ const ChartsInternal7 = () => {
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
         <div className='container form-group text-center'>
-          <h3>Pencapaian MP Internal By Omset</h3>
+          <h3>Target Pencapaian Total Revenue Online Sales</h3>
           <i className='nama'>*Sales April menggunakan proyeksi total sales akhir bulan</i>
         </div>
         
@@ -68,4 +81,4 @@ const ChartsInternal7 = () => {
   )
 }
 
-export default ChartsInternal7
+export default Charts

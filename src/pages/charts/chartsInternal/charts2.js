@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../api/getCharts'
+import getCharts from '../../../api/getCharts'
 import { Bar } from 'react-chartjs-2';
 
-
-const options = {
+ const options = {
     responsive: true,
     staccked: true,
     plugins: {
@@ -21,7 +20,7 @@ const options = {
       },
   };
 
-const Charts2 = () => {
+const ChartsInternal2 = () => {
     const [dataChart, setChart] = useState(null);
     useEffect(() => {
         if (sessionStorage.getItem("chart")) {
@@ -41,41 +40,42 @@ const Charts2 = () => {
       const data = {
         datasets: [
           {
-            label: 'Internal',
+            label: 'Akuisisi',
             data: dataChart,
             backgroundColor: "#619A3F",
             type: "bar"
           },
           {
-            label: 'Partner',
+            label: 'CRM',
             data: dataChart,
             backgroundColor: "#FF9E1D",
             type: "bar"
           },
           {
-            label: 'Target',
-            data: dataChart ? dataChart.map((data)=>{return{x:data.x,y:data.y * 2}}) : null,
-            backgroundColor: "#BABABA",
-            borderColor: "#BABABA",
-            type: "line",
+            label: 'MP',
+            data: dataChart,
+            backgroundColor: "#D9E021",
+            type: "bar"
+          },
+          {
+            label: 'Offline',
+            data: dataChart,
+            backgroundColor: "#06AAFF",
+            type: "bar"
           },
         ],
       };
-
-      const selectOptions = [
-        { value: 'mkahfi', label: 'M. Kahfi' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
-      ]
   return (
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
-        <div className='container form-group text-center'>
-          <h3>Revenue Online Sales Internal vs Partner</h3>
-          <i className='nama'>*Sales April menggunakan proyeksi total sales akhir bulan</i>
+        <div className='container row form-group'>
+            <div className='col-md-12 text-center'>
+                <h3>Omset Internal Per Channel</h3>
+                <i className='nama'>*Belum dikurangi return, sales April menggunakan perkiraan sales akhir bulan</i>
+            </div>
         </div>
 
-        <div className='container form-group row'>
+        <div className='container row form-group'>
           <Bar options={options} data={data} />
         </div>
       </div>
@@ -83,4 +83,4 @@ const Charts2 = () => {
   )
 }
 
-export default Charts2
+export default ChartsInternal2

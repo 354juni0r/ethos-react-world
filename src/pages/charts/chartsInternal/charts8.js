@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../api/getCharts'
+import getCharts from '../../../api/getCharts'
+import { Bar } from 'react-chartjs-2';
 import Select from 'react-select'
-import { Pie } from 'react-chartjs-2';
 
 const options = {
     responsive: true,
     plugins: {
       legend: {
-        position: 'right',
+        position: 'bottom',
       },
     },
   };
 
-const ChartsInternal12 = () => {
+const ChartsInternal8 = () => {
     const [dataChart, setChart] = useState(null);
     useEffect(() => {
         if (sessionStorage.getItem("chart")) {
@@ -30,33 +30,25 @@ const ChartsInternal12 = () => {
       }, []);
 
       const data = {
-        labels:[
-            'Facebook',
-            'Tiktok',
-            'Google',
-            'SMO',
-            'WEH01',
-            'GIZ01',
-            'ZYM01',
-            'BIO02',
-            'RUB01',
-            'VIS01',
-        ],
         datasets: [
           {
-            data: dataChart ? dataChart.map((data)=>{return data.y}) : null,
-            backgroundColor: [
-                "#619A3F",
-                "#FF9E1D",
-                "#D9E021",
-                "#06AAFF",
-                "#FB9A99",
-                "#E31A1C",
-                "#FDBF6F",
-                "#FF7F00",
-                "#CAB2D6",
-                "#6A3D9A",
-            ],
+            label: 'Akuisisi',
+            data: dataChart,
+            backgroundColor: "#619A3F",
+            type: "bar"
+          },
+          {
+            label: 'CRM',
+            data: dataChart,
+            backgroundColor: "#D9E021",
+            type: "bar"
+          },
+          {
+            label: 'Rasio',
+            data: dataChart,
+            backgroundColor: "#9C9C9C",
+            borderColor: "#9C9C9C",
+            type: "line",
           },
         ],
       };
@@ -67,27 +59,30 @@ const ChartsInternal12 = () => {
         { value: 'vanilla', label: 'Vanilla' }
       ]
   return (
-    <div className="card" style={{width: '30rem'}}>
+    <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
-        <div className='container form-group text-center'>
-            <h3>Kontribusi Sales Channel Akuisisi By Omset</h3>
-        </div>
-        
-        <div className='container row form-group'>
-            <div className='col-md-12'>
-                <h6 className='nama'>Bulan</h6>
-                <Select options={selectOptions} placeholder="Bulan"
+        <div className='container form-group row'>
+          <div className='col-md-6 text-center'>
+            <h3>Pencapaian MP Internal Berdasarkan Omset Akuisisi</h3>
+            <i className='nama'>*Belum dikurangi return, sales April menggunakan sales tanggal terupdate</i>
+          </div>
+          <div className='col-md-6'>
+                <h6 className='nama'>SKU</h6>
+                <Select options={selectOptions} placeholder="Kepada:" 
+                    isMulti
                     name="colors"
                     className="basic-multi-select"
                     classNamePrefix="select" 
                 />
             </div>
         </div>
-
-        <Pie options={options} data={data} />
+        
+        <div className='container form-group row'>
+          <Bar options={options} data={data} />
+        </div>
       </div>
     </div>
   )
 }
 
-export default ChartsInternal12
+export default ChartsInternal8
