@@ -34,6 +34,8 @@ import ChartsInternal12 from '../pages/charts/chartsInternal/charts12';
 import ChartsInternal13 from '../pages/charts/chartsInternal/charts13';
 import ChartsInternal14 from '../pages/charts/chartsInternal/charts14';
 import ChartsInternal15 from '../pages/charts/chartsInternal/charts15';
+
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
