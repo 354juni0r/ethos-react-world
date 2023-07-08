@@ -3,7 +3,7 @@ import Header from './components/header';
 
 import memo from '../src/menuHeader/memo/index';
 import pesan from '../src/menuHeader/pesan/index';
-import addmemo from '../src/menuHeader/memo/tambahmemo';
+import addmemo from './menuHeader/memo/tambahmemo';
 import ide from '../src/menuHeader/ide/index';
 import project from '../src/menuHeader/project/index'
 import agenda from '../src/menuHeader/agenda/index';
@@ -15,12 +15,12 @@ import {Home} from './pages/home';
 import Login from './login/login';
 
 import { Routes, Route } from 'react-router-dom';
-import Berbintang from '../src/menuHeader/pesan/berbintang';
-import Terkirim from '../src/menuHeader/pesan/terkirim';
-import Draft from '../src/menuHeader/pesan/draft';
-import Arsip from '../src/menuHeader/pesan/arsip';
-import Sampah from '../src/menuHeader/pesan/sampah';
-import BuatPesan from '../src/menuHeader/pesan/buatPesan';
+import Berbintang from './menuHeader/pesan/berbintang';
+import Terkirim from './menuHeader/pesan/terkirim';
+import Draft from './menuHeader/pesan/draft';
+import Arsip from './menuHeader/pesan/arsip';
+import Sampah from './menuHeader/pesan/sampah';
+import BuatPesan from './menuHeader/pesan/buatPesan';
 import ArsipIde from '../src/menuHeader/ide/arsip';
 import BerbagiIde from '../src/menuHeader/ide/berbagiIde';
 import BerbintangIde from '../src/menuHeader/ide/berbintang';

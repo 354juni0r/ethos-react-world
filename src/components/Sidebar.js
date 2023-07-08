@@ -1,7 +1,7 @@
 
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import datasidebar from '../../src/menuHeader/data/datasidebar'
+import datasidebar from '../menuHeader/data/datasidebar'
 const Sidebar = () => {
 
   const [auth, setAuth] = useState(null);

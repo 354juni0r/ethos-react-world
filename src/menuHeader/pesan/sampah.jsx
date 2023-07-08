@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink, Link } from "react-router-dom";
-import DataMemo from "../memo/dataMemo";
-
+import DataMemo from '../memo/dataMemo';
 const Sampah = () => {
   return (
     <>
