@@ -6,7 +6,7 @@ import TabelMemo from "./tabel/tabelMemo";
 export default function MemoPengajuan() {
   return (
     <>
-      <div className="card card-outline card-tabs">
+      <div className="card card-success card-outline card-outline-tabs">
         <div className="card-header p-0 pt-1">
           <HeaderTabelPengajuan />
         </div>
@@ -18,6 +18,7 @@ export default function MemoPengajuan() {
               role="tabpanel"
               aria-labelledby="custom-tabs-one-pengajuan-tab"
             >
+              <BoxControl />
               <TabelMemo id={"pengajuan"} />
             </div>
             <div
@@ -26,6 +27,7 @@ export default function MemoPengajuan() {
               role="tabpanel"
               aria-labelledby="custom-tabs-one-semua-tab"
             >
+              <BoxControl />
               <TabelMemo id={"pengajuan"} />
             </div>
             <div
@@ -34,6 +36,7 @@ export default function MemoPengajuan() {
               role="tabpanel"
               aria-labelledby="custom-tabs-one-draft-tab"
             >
+              <BoxControl />
               <TabelMemo id={"pengajuan"} status={"4"} />
             </div>
             <div
@@ -42,6 +45,7 @@ export default function MemoPengajuan() {
               role="tabpanel"
               aria-labelledby="custom-tabs-one-pending-tab"
             >
+              <BoxControl />
               <TabelMemo id={"pengajuan"} status={"3"} />
             </div>
             <div
@@ -50,6 +54,7 @@ export default function MemoPengajuan() {
               role="tabpanel"
               aria-labelledby="custom-tabs-one-revisi-tab"
             >
+              <BoxControl />
               <TabelMemo id={"pengajuan"} status={"2"} />
             </div>
             <div
@@ -58,6 +63,7 @@ export default function MemoPengajuan() {
               role="tabpanel"
               aria-labelledby="custom-tabs-one-disetujui-tab"
             >
+              <BoxControl />
               <TabelMemo id={"pengajuan"} status={"1"} />
             </div>
           </div>
