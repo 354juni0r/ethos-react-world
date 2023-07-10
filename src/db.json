@@ -133,6 +133,7 @@
     {
       "id": 1,
       "nama": "Yusrizal",
+      "subjek": "Pertanyaan tentang kesehatan",
       "isipesan": "Hallo, Selamat Siang. apakah Hari Ini Anda Sehat?...",
       "time": "5 Menit",
       "status": "1",
@@ -141,6 +142,7 @@
     {
       "id": 2,
       "nama": "Ridho",
+      "subjek": "Tanya kabar",
       "isipesan": "Hallo Gaisss, Selamat Malam. Sudah Makan...",
       "time": "15 Menit",
       "status": "2",
@@ -149,6 +151,7 @@
     {
       "id": 3,
       "nama": "Firman",
+      "subjek": "Pemberitahuan penting",
       "isipesan": "Hallo, Selamat Anda Mendapatkan....",
       "time": "1 Menit",
       "status": "3",
@@ -157,6 +160,7 @@
     {
       "id": 4,
       "nama": "Edward",
+      "subjek": "Uji coba",
       "isipesan": "Testing",
       "time": "4 Menit",
       "status": "4",
@@ -165,26 +169,20 @@
     {
       "id": 5,
       "nama": "Muniro",
+      "subjek": "Tes subjek",
       "isipesan": "tes..",
       "time": "2 Menit",
       "status": "3",
       "newTab": false
     },
     {
-      "id": 6,
-      "nama": "Bento",
-      "isipesan": "?...?...",
-      "time": "5 Menit",
-      "status": "1",
-      "newTab": false
-    },
-    {
-      "nama": "vanilla",
-      "isipesan": "czxcc",
+      "nama": "strawberry",
+      "subjek": "sasdsadsa",
+      "isipesan": "sadsadsadde",
       "time": "5 Menit",
       "status": "1",
       "newTab": false,
-      "id": 7
+      "id": 6
     }
   ],
   "dataProject": [

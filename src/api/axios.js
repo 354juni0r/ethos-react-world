@@ -14,6 +14,9 @@ export const addPesan = async (body) => {
   return save;
 };
 
+export const deletePesan = async (id) => {
+  return await axios.delete(`http://localhost:3030/DataMemo/${id}`);
+};
 export const getData = async () => {
   const data = await axios.get("http://localhost:3030/dataProject");
   return data.data;

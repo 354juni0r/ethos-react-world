@@ -7,6 +7,7 @@ const BuatPesan = () => {
   const navigate = useNavigate();
   const [dataPesan, setDataPesan] = useState({
     nama: "",
+    subjek: "",
     isipesan: "",
     time: "5 Menit",
     status: "1",
@@ -18,7 +19,7 @@ const BuatPesan = () => {
     setDataPesan({ ...dataPesan, [item]: event.target.value });
   };
 
-  const handleChange = (selectedOptions, type) => {
+  const handleChangeSelect = (selectedOptions, type) => {
     const selectedValues = selectedOptions.map((option) => option.value);
     const value = selectedValues.join("");
     setDataPesan((prevData) => ({
@@ -27,11 +28,12 @@ const BuatPesan = () => {
     }));
   };
 
-  const submitPesan = (e) => {
+  const submitPesan = async (e) => {
     e.preventDefault();
-    addPesan(dataPesan);
+    await addPesan(dataPesan);
     navigate(-1);
   };
+
   const goBack = () => {
     navigate(-1);
   };
@@ -144,7 +146,7 @@ const BuatPesan = () => {
                               className="basic-multi-select"
                               classNamePrefix="select"
                               onChange={(selectedOptions) =>
-                                handleChange(selectedOptions, "nama")
+                                handleChangeSelect(selectedOptions, "nama")
                               }
                             />
                           </div>
@@ -155,6 +157,7 @@ const BuatPesan = () => {
                             <input
                               className="form-control"
                               placeholder="Subjek:"
+                              onChange={handlerCreateMessage("subjek")}
                             />
                           </div>
                         </div>

@@ -1,14 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { getDataMemo } from "../../api/axios";
+import CheckBox from "./componentsPesan/checkbox";
+import { deletePesan } from "../../api/axios";
 const Index = () => {
   const [dataApi, setDataAPi] = useState([]);
+
+  const [selectedIdPesan, setSelectedIdPesan] = useState([]);
+
+  const handleCheckboxChange = (id, isChecked) => {
+    if (isChecked) {
+      setSelectedIdPesan([...selectedIdPesan, id]); // Menambahkan id ke dalam array selectedIdPesan
+    } else {
+      setSelectedIdPesan(
+        selectedIdPesan.filter((selectedId) => selectedId !== id)
+      ); // Menghapus id dari array selectedIds
+    }
+  };
+
+  const HandlerdeletePesan = async () => {
+    await deletePesan(selectedIdPesan[0]);
+    setSelectedIdPesan([]);
+  };
   useEffect(() => {
     getDataMemo().then((res) => {
       setDataAPi(res);
     });
-  }, []);
+  }, [selectedIdPesan]);
+
+  const confirmDeletePesan = () => {
+    if (window.confirm("Apakah Anda yakin ingin menghapus pesan ini?")) {
+      HandlerdeletePesan();
+    }
+  };
   console.log("first", dataApi);
+  console.log("first2", selectedIdPesan);
   return (
     <>
       <div className="content-wrapper">
@@ -161,6 +187,7 @@ const Index = () => {
                           <button
                             type="button"
                             className="btn btn-default btn-sm"
+                            onClick={confirmDeletePesan}
                           >
                             <i className="far fa-trash-alt" />
                           </button>
@@ -211,11 +238,10 @@ const Index = () => {
                             {dataApi.map((DataMemo, idx) => (
                               <tr key={idx}>
                                 <td>
-                                  <div className="icheck-primary">
-                                    <input
-                                      type="checkbox"
-                                      defaultValue
-                                      id="check1"
+                                  <div className="">
+                                    <CheckBox
+                                      id={DataMemo.id}
+                                      onChange={handleCheckboxChange}
                                     />
                                     <label htmlFor="check1" />
                                   </div>
