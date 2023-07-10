@@ -34,6 +34,15 @@ import ChartsInternal12 from './charts/chartsInternal/charts12';
 import ChartsInternal13 from './charts/chartsInternal/charts13';
 import ChartsInternal14 from './charts/chartsInternal/charts14';
 import ChartsInternal15 from './charts/chartsInternal/charts15';
+import ChartsInternal16 from './charts/chartsInternal/charts16';
+import ChartsInternal17 from './charts/chartsInternal/charts17';
+import ChartsPartner from './charts/chartsPartner/charts';
+import ChartsPartner2 from './charts/chartsPartner/charts2';
+import ChartsPartner3 from './charts/chartsPartner/charts3';
+import ChartsPartner4 from './charts/chartsPartner/charts4';
+import ChartsPartner5 from './charts/chartsPartner/charts5';
+import ChartsPartner6 from './charts/chartsPartner/charts6';
+import ChartsPartner7 from './charts/chartsPartner/charts7';
 
 
 ChartJS.register(
@@ -180,10 +189,18 @@ export const Home = () => {
                     <ChartsInternal13 />
                     <ChartsInternal14 />
                     <ChartsInternal15 />
+                    <ChartsInternal16 />
+                    <ChartsInternal17 />
                   </div>
 
                   <div className="tab-pane fade" id="custom-tabs-four-partner" role="tabpanel" aria-labelledby="custom-tabs-four-partner-tab">
-                    Partner
+                    <ChartsPartner />
+                    <ChartsPartner2 />
+                    <ChartsPartner3 />
+                    <ChartsPartner4 />
+                    <ChartsPartner5 />
+                    <ChartsPartner6 />
+                    <ChartsPartner7 />
                   </div>
 
                   <div className="tab-pane fade" id="custom-tabs-four-offline" role="tabpanel" aria-labelledby="custom-tabs-four-offline-tab">

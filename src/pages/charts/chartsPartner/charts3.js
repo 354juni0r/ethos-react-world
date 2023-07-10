@@ -2,16 +2,25 @@ import React, {useState, useEffect} from 'react'
 import getCharts from '../../../api/getCharts'
 import { Bar } from 'react-chartjs-2';
 
-const options = {
+ const options = {
     responsive: true,
+    staccked: true,
     plugins: {
       legend: {
         position: 'bottom',
       },
     },
+    scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          stacked: true,
+        },
+      },
   };
 
-const ChartsInternal11 = () => {
+const ChartsPartner3 = () => {
     const [dataChart, setChart] = useState(null);
     useEffect(() => {
         if (sessionStorage.getItem("chart")) {
@@ -29,35 +38,38 @@ const ChartsInternal11 = () => {
       }, []);
 
       const data = {
-        labels: ["Chocolate", "Vanilla", "Strawberry"],
         datasets: [
           {
-            label: 'Target',
+            label: 'Akuisisi',
             data: dataChart,
             backgroundColor: "#619A3F",
+            type: "bar"
           },
           {
-            label: 'Omset',
+            label: 'CRM',
             data: dataChart,
             backgroundColor: "#FF9E1D",
+            type: "bar"
           },
           {
-            label: 'Omset',
+            label: 'MP',
             data: dataChart,
             backgroundColor: "#D9E021",
+            type: "bar"
           },
         ],
       };
   return (
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
-        <div className='container form-group text-center'>
-          <h3>Omset Akuisisi Per Channel</h3>
-          <i className='nama'>*Sales April menggunakan proyeksi total sales akhir bulan</i>
+        <div className='container row form-group'>
+            <div className='col-md-12 text-center'>
+                <h3>Omset Partner Per Channel</h3>
+                <i className='nama'>*Belum dikurangi return, sales April menggunakan perkiraan sales akhir bulan</i>
+            </div>
         </div>
-        
-        <div className='container form-group row'>
-          <h1>URUNG BERES!!</h1>
+
+        <div className='container row form-group'>
           <Bar options={options} data={data} />
         </div>
       </div>
@@ -65,4 +77,4 @@ const ChartsInternal11 = () => {
   )
 }
 
-export default ChartsInternal11
+export default ChartsPartner3

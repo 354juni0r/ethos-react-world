@@ -1,18 +1,24 @@
 import React, {useState, useEffect} from 'react'
 import getCharts from '../../../api/getCharts'
-import { Bar } from 'react-chartjs-2';
 import Select from 'react-select'
+import { Bar } from 'react-chartjs-2';
 
 const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'bottom',
-      },
+  responsive: true,
+  indexAxis: 'y',
+  elements: {
+    bar: {
+      borderWidth: 2,
     },
-  };
+  },
+  plugins: {
+    legend: {
+      position: false,
+    },
+  },
+};
 
-const ChartsInternal6 = () => {
+const ChartsPartner = () => {
     const [dataChart, setChart] = useState(null);
     useEffect(() => {
         if (sessionStorage.getItem("chart")) {
@@ -26,6 +32,7 @@ const ChartsInternal6 = () => {
                 sessionStorage.setItem("chart", JSON.stringify(data));
               });
           }
+          console.log(dataChart)
         
       }, []);
 
@@ -33,22 +40,9 @@ const ChartsInternal6 = () => {
         datasets: [
           {
             label: 'Akuisisi',
-            data: dataChart,
+            data: dataChart? dataChart.map((data)=>{return {x:data.y, y:data.x}}) : null,
             backgroundColor: "#619A3F",
             type: "bar"
-          },
-          {
-            label: 'CRM',
-            data: dataChart,
-            backgroundColor: "#D9E021",
-            type: "bar"
-          },
-          {
-            label: 'Rasio',
-            data: dataChart,
-            backgroundColor: "#9C9C9C",
-            borderColor: "#9C9C9C",
-            type: "line",
           },
         ],
       };
@@ -62,12 +56,12 @@ const ChartsInternal6 = () => {
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
         <div className='container form-group row'>
-          <div className='col-md-6 text-center'>
-            <h3>Pencapaian CRM Internal Berdasarkan Omset Akuisisi</h3>
-            <i className='nama'>*Belum dikurangi return, sales April menggunakan sales tanggal terupdate</i>
+          <div className='col-md-6'>
+            <h3>Top 5 Partner</h3>
+            <i className='nama'>*Rentang waktu pilih di samping</i>
           </div>
           <div className='col-md-6'>
-                <h6 className='nama'>SKU</h6>
+                <h6 className='nama'>Bulan</h6>
                 <Select options={selectOptions} placeholder="Kepada:" 
                     isMulti
                     name="colors"
@@ -76,9 +70,8 @@ const ChartsInternal6 = () => {
                 />
             </div>
         </div>
-        
-        <div className='container form-group row'>
-          <h1>URUNG BERES!!</h1>
+
+        <div className='container row form-group'>
           <Bar options={options} data={data} />
         </div>
       </div>
@@ -86,4 +79,4 @@ const ChartsInternal6 = () => {
   )
 }
 
-export default ChartsInternal6
+export default ChartsPartner

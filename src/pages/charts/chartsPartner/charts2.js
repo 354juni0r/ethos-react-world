@@ -11,7 +11,7 @@ const options = {
     },
   };
 
-const ChartsInternal11 = () => {
+const ChartsPartner2 = () => {
     const [dataChart, setChart] = useState(null);
     useEffect(() => {
         if (sessionStorage.getItem("chart")) {
@@ -29,22 +29,26 @@ const ChartsInternal11 = () => {
       }, []);
 
       const data = {
-        labels: ["Chocolate", "Vanilla", "Strawberry"],
         datasets: [
           {
-            label: 'Target',
+            label: 'Omset',
             data: dataChart,
             backgroundColor: "#619A3F",
+            type: "bar"
           },
           {
-            label: 'Omset',
+            label: 'Target Omset',
+            data: dataChart,
+            backgroundColor: "#9C9C9C",
+            borderColor: "#9C9C9C",
+            type: "line",
+          },
+          {
+            label: 'Daily Average Omset',
             data: dataChart,
             backgroundColor: "#FF9E1D",
-          },
-          {
-            label: 'Omset',
-            data: dataChart,
-            backgroundColor: "#D9E021",
+            borderColor: "#FF9E1D",
+            type: "line",
           },
         ],
       };
@@ -52,12 +56,11 @@ const ChartsInternal11 = () => {
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
         <div className='container form-group text-center'>
-          <h3>Omset Akuisisi Per Channel</h3>
+          <h3>Average Daily Omset Partner</h3>
           <i className='nama'>*Sales April menggunakan proyeksi total sales akhir bulan</i>
         </div>
         
         <div className='container form-group row'>
-          <h1>URUNG BERES!!</h1>
           <Bar options={options} data={data} />
         </div>
       </div>
@@ -65,4 +68,4 @@ const ChartsInternal11 = () => {
   )
 }
 
-export default ChartsInternal11
+export default ChartsPartner2
