@@ -7,17 +7,28 @@ const Index = () => {
   const [dataApi, setDataAPi] = useState([]);
 
   const [selectedIdPesan, setSelectedIdPesan] = useState([]);
+  const [isAllChecked, setIsAllChecked] = useState(false);
 
   const handleCheckboxChange = (id, isChecked) => {
     if (isChecked) {
-      setSelectedIdPesan([...selectedIdPesan, id]); // Menambahkan id ke dalam array selectedIdPesan
+      setSelectedIdPesan([...selectedIdPesan, id]);
     } else {
       setSelectedIdPesan(
         selectedIdPesan.filter((selectedId) => selectedId !== id)
-      ); // Menghapus id dari array selectedIds
+      ); 
     }
   };
+  const handleSelectAll = () => {
+    const allIds = dataApi.map((item) => item.id);
 
+    if (isAllChecked) {
+      setSelectedIdPesan([]);
+    } else {
+      setSelectedIdPesan(allIds);
+    }
+
+    setIsAllChecked(!isAllChecked);
+  };
   const HandlerdeletePesan = async () => {
     await deletePesan(selectedIdPesan[0]);
     setSelectedIdPesan([]);
@@ -78,7 +89,6 @@ const Index = () => {
                     <li className="nav-item">
                       <Link to="/pesan/berbintang" className="nav-link">
                         <i className="fas fa-star" /> Berbintang
-                        {/* <span className="badge bg-primary float-right">12</span> */}
                       </Link>
                     </li>
                     <li className="nav-item">
@@ -179,6 +189,7 @@ const Index = () => {
                         {/* Check all button */}
                         <button
                           type="button"
+                          onClick={handleSelectAll}
                           className="btn btn-default btn-sm checkbox-toggle"
                         >
                           <i className="far fa-square" />
@@ -242,6 +253,7 @@ const Index = () => {
                                     <CheckBox
                                       id={DataMemo.id}
                                       onChange={handleCheckboxChange}
+                                      checkedAll={isAllChecked}
                                     />
                                     <label htmlFor="check1" />
                                   </div>

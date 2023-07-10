@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const CheckBox = ({ id, onChange }) => {
+const CheckBox = ({ id, onChange, checkedAll }) => {
   const [isChecked, setIsChecked] = useState(false);
+
+  useEffect(() => {
+    setIsChecked(checkedAll);
+  }, [checkedAll]);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-    onChange(id, !isChecked); // Panggil fungsi onChange dengan id dan nilai terkini isChecked
+    onChange(id, !isChecked);
   };
 
   return (
