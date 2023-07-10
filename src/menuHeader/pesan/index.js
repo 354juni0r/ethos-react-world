@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { getDataMemo } from "../../api/axios";
+import { getDataMemo, getDataPesan } from "../../api/axios";
 import CheckBox from "./componentsPesan/checkbox";
 import { deletePesan } from "../../api/axios";
 const Index = () => {
+  const [dataMessage, setDataMessage] = useState([]);
+  useEffect(() => {
+    if (sessionStorage.getItem("dataPesan")) {
+      setDataMessage(JSON.parse(sessionStorage.getItem("dataPesan")));
+    } else {
+      getDataPesan().then((res) => {
+        sessionStorage.setItem("dataPesan", JSON.stringify(res));
+        setDataMessage(res);
+      });
+    }
+  }, []);
+  // data fake db
   const [dataApi, setDataAPi] = useState([]);
 
   const [selectedIdPesan, setSelectedIdPesan] = useState([]);
@@ -15,7 +27,7 @@ const Index = () => {
     } else {
       setSelectedIdPesan(
         selectedIdPesan.filter((selectedId) => selectedId !== id)
-      ); 
+      );
     }
   };
   const handleSelectAll = () => {
@@ -44,8 +56,7 @@ const Index = () => {
       HandlerdeletePesan();
     }
   };
-  console.log("first", dataApi);
-  console.log("first2", selectedIdPesan);
+  console.log("first", dataMessage);
   return (
     <>
       <div className="content-wrapper">
@@ -246,7 +257,7 @@ const Index = () => {
                       <div className="table-responsive mailbox-messages">
                         <table className="table table-hover table-striped">
                           <tbody>
-                            {dataApi.map((DataMemo, idx) => (
+                            {dataMessage.map((DataMemo, idx) => (
                               <tr key={idx}>
                                 <td>
                                   <div className="">
@@ -267,7 +278,7 @@ const Index = () => {
                                   <a href="read-mail.html">{DataMemo.nama}</a>
                                 </td>
                                 <td className="mailbox-subject">
-                                  <b>{DataMemo.nama}</b> - {DataMemo.isipesan}
+                                  <b>{DataMemo.subjek}</b> - {DataMemo.isi}
                                 </td>
                                 <td className="mailbox-attachment" />
                                 <td className="mailbox-date">

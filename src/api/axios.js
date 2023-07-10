@@ -26,3 +26,13 @@ export const addData = async (body) => {
   const save = await axios.post("http://localhost:3030/dataProject", body);
   return save;
 };
+
+export const getDataPesan = async () => {
+  const data = await axios.get(`${process.env.REACT_APP_API_PESAN}/pesan`, {
+    headers: {
+      secretcode: process.env.REACT_APP_API_SECRETCODE,
+      secretkey: process.env.REACT_APP_API_SECRETKEY,
+    },
+  });
+  return data.data.data;
+};
