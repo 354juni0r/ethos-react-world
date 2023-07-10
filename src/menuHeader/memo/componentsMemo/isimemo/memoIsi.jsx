@@ -12,6 +12,7 @@ export default function MemoIsi(props) {
   return (
     <>
       <CardMemo
+        name={props.name}
         title={
           <>
             <i className="fas fa-arrow-left mr-2" onClick={props.onClick} />
@@ -20,8 +21,7 @@ export default function MemoIsi(props) {
         }
         body={
           <>
-            <TabelIsiMemo id={"berbintang"} text={props.textMemo} />
-            {/* isi surat */}
+            <TabelIsiMemo id={props.name} text={props.textMemo} />
             <div className="text-xs mt-2">
               <div className="row">
                 <div className="col">

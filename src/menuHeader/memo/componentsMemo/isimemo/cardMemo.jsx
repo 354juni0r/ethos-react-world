@@ -3,7 +3,7 @@ import React from "react";
 export default function CardMemo(props) {
   return (
     <div>
-      <div className="card">
+      <div className="card" name={props.name}>
         <div className="card-header">
           <h3 className="card-title">{props.title}</h3>
           <div className="card-tools">{props.tools}</div>

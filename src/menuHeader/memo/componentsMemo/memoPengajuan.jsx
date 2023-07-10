@@ -3,7 +3,7 @@ import HeaderTabelPengajuan from "./tabel/headerTabelPengajuan";
 import BoxControl from "./boxControl";
 import TabelMemo from "./tabel/tabelMemo";
 
-export default function MemoPengajuan() {
+export default function MemoPengajuan(props) {
   return (
     <>
       <div className="card card-success card-outline card-outline-tabs">
@@ -19,7 +19,12 @@ export default function MemoPengajuan() {
               aria-labelledby="custom-tabs-one-pengajuan-tab"
             >
               <BoxControl />
-              <TabelMemo id={"pengajuan"} />
+              <TabelMemo
+                id={"pengajuan"}
+                onClickDisetujui={props.onClickMemoDisetujui}
+                onClickPending={props.onClickMemoPending}
+                onClickRevisi={props.onClickMemoRevisi}
+              />
             </div>
             <div
               className="tab-pane fade"
