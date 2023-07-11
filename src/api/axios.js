@@ -49,13 +49,15 @@ export const countPesan = async () => {
   return data.data[0];
 };
 
-export const grafik = async () => {
-  console.log(process.env.REACT_APP_API_URL_POST);
-  const data = await axios.get(`${process.env.REACT_APP_API_URL_POST}/grafik`, {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Access-Control-Allow-Origin": "*",
-    },
-  });
-  console.log("first", data);
+export const getUsers = async () => {
+  const { data } = await axios.get(
+    `${process.env.REACT_APP_API_URL_VIEW}/users`,
+    {
+      headers: {
+        secretcode: process.env.REACT_APP_API_SECRETCODE,
+        secretkey: process.env.REACT_APP_API_SECRETKEY,
+      },
+    }
+  );
+  return data.data;
 };

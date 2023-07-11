@@ -7,14 +7,10 @@ import { useEffect } from "react";
 function Header() {
   const [dataCount, setDataCount] = useState(0);
   useEffect(() => {
-    if (sessionStorage.getItem("count")) {
-      setDataCount(JSON.parse(sessionStorage.getItem("count")));
-    } else {
       countPesan().then((res) => {
         setDataCount(res);
-        sessionStorage.setItem("count", JSON.stringify(res));
       });
-    }
+    
   }, []);
   return (
     <>
