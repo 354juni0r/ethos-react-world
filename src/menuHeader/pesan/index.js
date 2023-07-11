@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { getDataMemo, getDataPesan } from "../../api/axios";
+import { getDataMemo, getDataPesan, grafik } from "../../api/axios";
 import CheckBox from "./componentsPesan/checkbox";
 import { deletePesan } from "../../api/axios";
 const Index = () => {
@@ -46,6 +46,7 @@ const Index = () => {
     setSelectedIdPesan([]);
   };
   useEffect(() => {
+    // grafik();
     getDataMemo().then((res) => {
       setDataAPi(res);
     });
@@ -255,10 +256,15 @@ const Index = () => {
                       </div>
 
                       <div className="table-responsive mailbox-messages">
-                        <table className="table table-hover table-striped">
+                        <table className="table table-hover">
                           <tbody>
                             {dataMessage.map((DataMemo, idx) => (
-                              <tr key={idx}>
+                              <tr
+                                key={idx}
+                                className={`${
+                                  DataMemo.baca == "true" ? "bg-light" : ""
+                                }`}
+                              >
                                 <td>
                                   <div className="">
                                     <CheckBox
@@ -275,10 +281,26 @@ const Index = () => {
                                   </a>
                                 </td>
                                 <td className="mailbox-name">
-                                  <a href="read-mail.html">{DataMemo.nama}</a>
+                                  <a
+                                    href="read-mail.html"
+                                    className={`${
+                                      DataMemo.baca !== "true" ? "nama" : ""
+                                    }`}
+                                  >
+                                    {DataMemo.nama}
+                                  </a>
                                 </td>
                                 <td className="mailbox-subject">
-                                  <b>{DataMemo.subjek}</b> - {DataMemo.isi}
+                                  <b
+                                    className={`${
+                                      DataMemo.baca == "true"
+                                        ? "text"
+                                        : ""
+                                    }`}
+                                  >
+                                    {DataMemo.subjek}
+                                  </b>{" "}
+                                  - {DataMemo.isi}
                                 </td>
                                 <td className="mailbox-attachment" />
                                 <td className="mailbox-date">
