@@ -36,3 +36,15 @@ export const getDataPesan = async () => {
   });
   return data.data.data;
 };
+export const countPesan = async () => {
+  const data = await axios.get(
+    `${process.env.REACT_APP_API_PESAN}/count/pesan`,
+    {
+      headers: {
+        secretcode: process.env.REACT_APP_API_SECRETCODE,
+        secretkey: process.env.REACT_APP_API_SECRETKEY,
+      },
+    }
+  );
+  return data.data.data[0];
+};
