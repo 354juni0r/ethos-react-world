@@ -24,6 +24,7 @@ export default function MemoPengajuan(props) {
                 onClickDisetujui={props.onClickMemoDisetujui}
                 onClickPending={props.onClickMemoPending}
                 onClickRevisi={props.onClickMemoRevisi}
+                onClickDraft={props.onClickMemoDraft}
               />
             </div>
             <div

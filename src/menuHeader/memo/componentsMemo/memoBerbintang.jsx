@@ -33,6 +33,7 @@ export default function MemoBerbintang(props) {
             onClickDisetujui={props.onClickMemoDisetujui}
             onClickPending={props.onClickMemoPending}
             onClickRevisi={props.onClickMemoRevisi}
+            onClickDraft={props.onClickMemoDraft}
           />
         </div>
         <div className="card-footer p-0">

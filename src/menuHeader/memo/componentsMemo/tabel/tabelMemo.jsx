@@ -85,7 +85,7 @@ export default function TabelMemo(props) {
                     ) : (
                       <button
                         className="btn btn-light btn-block mb-3"
-                        onClick={props.onClickDraf}
+                        onClick={props.onClickDraft}
                       >
                         Draft
                       </button>

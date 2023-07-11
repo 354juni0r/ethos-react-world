@@ -8,6 +8,7 @@ import MemoArsip from "./componentsMemo/memoArsip";
 import MemoSampah from "./componentsMemo/memoSampah";
 import MemoIsi from "./componentsMemo/isimemo/memoIsi";
 import MemoRevisi from "./componentsMemo/isimemo/memoRevisi";
+import DrafMemo from "./componentsMemo/isimemo/drafMemo";
 const Index = () => {
   const [showState, setShowState] = useState({
     showPengajuan: true,
@@ -19,6 +20,8 @@ const Index = () => {
     showMemoPending: false,
     showMemoRevisi: false,
     showMemoRevisiBerbintang: false,
+    showMemoDraft: false,
+    showMemoDraftBerbintang: false,
   });
 
   const toggleState = (stateKey) => {
@@ -35,6 +38,8 @@ const Index = () => {
       showMemoPendingBerbintang: false,
       showMemoRevisi: false,
       showMemoRevisiBerbintang: false,
+      showMemoDraft: false,
+      showMemoDraftBerbintang: false,
       [stateKey]: true,
     }));
   };
@@ -53,6 +58,9 @@ const Index = () => {
   const toggleOpenMemoRevisi = () => toggleState("showMemoRevisi");
   const toggleOpenMemoRevisiBerbintang = () =>
     toggleState("showMemoRevisiBerbintang");
+  const toggleOpenMemoDraft = () => toggleState("showMemoDraft");
+  const toggleOpenMemoDraftBerbintang = () =>
+    toggleState("showMemoDraftBerbintang");
 
   return (
     <>
@@ -83,6 +91,7 @@ const Index = () => {
                   onClickMemoDisetujui={toggleOpenMemoDisetujui}
                   onClickMemoPending={toggleOpenMemoPending}
                   onClickMemoRevisi={toggleOpenMemoRevisi}
+                  onClickMemoDraft={toggleOpenMemoDraft}
                 />
               )}
 
@@ -91,6 +100,7 @@ const Index = () => {
                   onClickMemoDisetujui={toggleOpenMemoDisetujuiBerbintang}
                   onClickMemoPending={toggleOpenMemoPendingBerbintang}
                   onClickMemoRevisi={toggleOpenMemoRevisiBerbintang}
+                  onClickMemoDraft={toggleOpenMemoDraftBerbintang}
                 />
               )}
               {showState.showTerkirim && <MemoTerkirim />}
@@ -121,6 +131,12 @@ const Index = () => {
               )}
               {showState.showMemoRevisiBerbintang && (
                 <MemoRevisi onClick={togglePengajuan} name={"berbintang"} />
+              )}
+              {showState.showMemoDraft && (
+                <DrafMemo onClick={togglePengajuan} />
+              )}
+              {showState.showMemoDraftBerbintang && (
+                <DrafMemo onClick={togglePengajuan} name={"berbintang"} />
               )}
             </div>
           </div>
