@@ -5,25 +5,25 @@ export default axios.create({
 });
 
 export const getDataMemo = async () => {
-  const data = await axios.get("http://localhost:3030/DataMemo");
+  const data = await axios.get(`${process.env.REACT_APP_API_LOCAL}DataMemo`);
   return data.data;
 };
 
 export const addPesan = async (body) => {
-  const save = await axios.post("http://localhost:3030/DataMemo", body);
+  const save = await axios.post(`${process.env.REACT_APP_API_LOCAL}DataMemo`, body);
   return save;
 };
 
 export const deletePesan = async (id) => {
-  return await axios.delete(`http://localhost:3030/DataMemo/${id}`);
+  return await axios.delete(`${process.env.REACT_APP_API_LOCAL}DataMemo/${id}`);
 };
 export const getData = async () => {
-  const data = await axios.get("http://localhost:3030/dataProject");
+  const data = await axios.get(`${process.env.REACT_APP_API_LOCAL}dataProject`);
   return data.data;
 };
 
 export const addData = async (body) => {
-  const save = await axios.post("http://localhost:3030/dataProject", body);
+  const save = await axios.post(`${process.env.REACT_APP_API_LOCAL}dataProject`, body);
   return save;
 };
 
