@@ -1,7 +1,7 @@
 import React from "react";
 import CardMemo from "./cardMemo";
 import Select from "react-select";
-export default function MemoRevisi(props) {
+export default function DrafMemo(props) {
   const optionsKomunikasi = [
     { value: "PIC", label: "PIC" },
     { value: "Editor", label: "Editor" },
@@ -20,25 +20,19 @@ export default function MemoRevisi(props) {
         title={
           <>
             <i className="fas fa-arrow-left mr-2" onClick={props.onClick} />
-            <i className="far fa-comments" /> Revisi Memo
+            <i className="far fa-comments" /> Draf Memo
           </>
         }
         tools={
           <>
-            {props.name == "berbintang" && <i className="fas fa-star text-warning" />}
-            <span className="badge bg-danger">revisi</span>
+            {props.name == "berbintang" && (
+              <i className="fas fa-star text-warning" />
+            )}
+            <span className="badge bg-light">Draft</span>
           </>
         }
         body={
           <>
-            <p className="nama">Catatan Revisi</p>
-            <p className="border border-2 p-2 rounded">
-              Produk Randon adalah inovasi terbaru dalam industri teknologi,
-              yang dirancang untuk memenuhi kebutuhan dan keinginan konsumen
-              modern. Dengan desain yang elegan dan fitur-fitur canggih, Randon
-              menawarkan pengalaman yang luar biasa kepada pengguna.
-            </p>
-            <hr />
             <div className="row">
               <div className="col-md-3">
                 <Select
@@ -114,7 +108,7 @@ export default function MemoRevisi(props) {
               <CardMemo
                 title={
                   <>
-                    <h6 className="nama">Isi Memo</h6>
+                    <p className="nama">Isi Memo</p>
                   </>
                 }
                 body={

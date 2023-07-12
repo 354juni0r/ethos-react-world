@@ -1,14 +1,63 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { getDataMemo } from "../../api/axios";
+import { getDataMemo, getDataPesan, grafik } from "../../api/axios";
+import CheckBox from "./componentsPesan/checkbox";
+import { deletePesan } from "../../api/axios";
 const Index = () => {
-  const [dataApi, setDataAPi] = useState([]);
+  const [dataMessage, setDataMessage] = useState([]);
   useEffect(() => {
+    if (sessionStorage.getItem("dataPesan")) {
+      setDataMessage(JSON.parse(sessionStorage.getItem("dataPesan")));
+    } else {
+      getDataPesan().then((res) => {
+        sessionStorage.setItem("dataPesan", JSON.stringify(res));
+        setDataMessage(res);
+      });
+    }
+  }, []);
+  // data fake db
+  const [dataApi, setDataAPi] = useState([]);
+
+  const [selectedIdPesan, setSelectedIdPesan] = useState([]);
+  const [isAllChecked, setIsAllChecked] = useState(false);
+
+  const handleCheckboxChange = (id, isChecked) => {
+    if (isChecked) {
+      setSelectedIdPesan([...selectedIdPesan, id]);
+    } else {
+      setSelectedIdPesan(
+        selectedIdPesan.filter((selectedId) => selectedId !== id)
+      );
+    }
+  };
+  const handleSelectAll = () => {
+    const allIds = dataApi.map((item) => item.id);
+
+    if (isAllChecked) {
+      setSelectedIdPesan([]);
+    } else {
+      setSelectedIdPesan(allIds);
+    }
+
+    setIsAllChecked(!isAllChecked);
+  };
+  const HandlerdeletePesan = async () => {
+    await deletePesan(selectedIdPesan[0]);
+    setSelectedIdPesan([]);
+  };
+  useEffect(() => {
+    // grafik();
     getDataMemo().then((res) => {
       setDataAPi(res);
     });
-  }, []);
-  console.log("first", dataApi);
+  }, [selectedIdPesan]);
+
+  const confirmDeletePesan = () => {
+    if (window.confirm("Apakah Anda yakin ingin menghapus pesan ini?")) {
+      HandlerdeletePesan();
+    }
+  };
+  console.log("first", dataMessage);
   return (
     <>
       <div className="content-wrapper">
@@ -29,12 +78,12 @@ const Index = () => {
         <section className="content">
           <div className="row">
             <div className="col-md-3">
-              <a
-                href="/pesan/buatpesan"
+              <Link
+                to="/pesan/buatpesan"
                 className="btn btn-primary btn-block mb-3"
               >
                 Buat Pesan
-              </a>
+              </Link>
               <div className="card">
                 <div className="card-header-green p-1">
                   <ul className="nav nav-pills2 flex-column">
@@ -52,7 +101,6 @@ const Index = () => {
                     <li className="nav-item">
                       <Link to="/pesan/berbintang" className="nav-link">
                         <i className="fas fa-star" /> Berbintang
-                        {/* <span className="badge bg-primary float-right">12</span> */}
                       </Link>
                     </li>
                     <li className="nav-item">
@@ -153,6 +201,7 @@ const Index = () => {
                         {/* Check all button */}
                         <button
                           type="button"
+                          onClick={handleSelectAll}
                           className="btn btn-default btn-sm checkbox-toggle"
                         >
                           <i className="far fa-square" />
@@ -161,6 +210,7 @@ const Index = () => {
                           <button
                             type="button"
                             className="btn btn-default btn-sm"
+                            onClick={confirmDeletePesan}
                           >
                             <i className="far fa-trash-alt" />
                           </button>
@@ -206,16 +256,21 @@ const Index = () => {
                       </div>
 
                       <div className="table-responsive mailbox-messages">
-                        <table className="table table-hover table-striped">
+                        <table className="table table-hover">
                           <tbody>
-                            {dataApi.map((DataMemo, idx) => (
-                              <tr key={idx}>
+                            {dataMessage.map((DataMemo, idx) => (
+                              <tr
+                                key={idx}
+                                className={`${
+                                  DataMemo.baca == "true" ? "bg-light" : ""
+                                }`}
+                              >
                                 <td>
-                                  <div className="icheck-primary">
-                                    <input
-                                      type="checkbox"
-                                      defaultValue
-                                      id="check1"
+                                  <div className="">
+                                    <CheckBox
+                                      id={DataMemo.id}
+                                      onChange={handleCheckboxChange}
+                                      checkedAll={isAllChecked}
                                     />
                                     <label htmlFor="check1" />
                                   </div>
@@ -226,10 +281,24 @@ const Index = () => {
                                   </a>
                                 </td>
                                 <td className="mailbox-name">
-                                  <a href="read-mail.html">{DataMemo.nama}</a>
+                                  <a
+                                    href="read-mail.html"
+                                    className={`${
+                                      DataMemo.baca !== "true" ? "nama" : ""
+                                    }`}
+                                  >
+                                    {DataMemo.nama}
+                                  </a>
                                 </td>
                                 <td className="mailbox-subject">
-                                  <b>{DataMemo.nama}</b> - {DataMemo.isipesan}
+                                  <b
+                                    className={`${
+                                      DataMemo.baca == "true" ? "text" : ""
+                                    }`}
+                                  >
+                                    {DataMemo.subjek}
+                                  </b>{" "}
+                                  - {DataMemo.isi}
                                 </td>
                                 <td className="mailbox-attachment" />
                                 <td className="mailbox-date">

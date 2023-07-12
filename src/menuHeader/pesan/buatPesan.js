@@ -1,46 +1,58 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import Select from "react-select";
-import { addPesan } from "../../api/axios";
+import { addPesan, getUsers } from "../../api/axios";
 import { useState } from "react";
 const BuatPesan = () => {
   const navigate = useNavigate();
+  const [dataUsers, setDataUsers] = useState([]);
+  useEffect(() => {
+    if (sessionStorage.getItem("dataUsers")) {
+      setDataUsers(JSON.parse(sessionStorage.getItem("dataUsers")));
+    } else {
+      getUsers().then((res) => {
+        sessionStorage.setItem("dataUsers", JSON.stringify(res));
+        setDataUsers(res);
+      });
+    }
+  }, []);
   const [dataPesan, setDataPesan] = useState({
-    nama: "",
+    nama: [],
+    subjek: "",
     isipesan: "",
     time: "5 Menit",
     status: "1",
     newTab: false,
   });
-
+  // clg
   console.log("first", dataPesan);
+
   const handlerCreateMessage = (item) => (event) => {
     setDataPesan({ ...dataPesan, [item]: event.target.value });
   };
 
-  const handleChange = (selectedOptions, type) => {
+  const handleChangeSelect = (selectedOptions, type) => {
     const selectedValues = selectedOptions.map((option) => option.value);
-    const value = selectedValues.join("");
     setDataPesan((prevData) => ({
       ...prevData,
-      [type]: value,
+      [type]: selectedValues,
     }));
   };
 
-  const submitPesan = (e) => {
+  const optionsUser = dataUsers.map((user) => ({
+    value: user.id,
+    label: user.nama,
+  }));
+
+  const submitPesan = async (e) => {
     e.preventDefault();
-    addPesan(dataPesan);
-    navigate(-1);
-  };
-  const goBack = () => {
+    await addPesan(dataPesan);
     navigate(-1);
   };
 
-  const options = [
-    { value: "mkahfi", label: "M. Kahfi" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
+  const goBack = () => {
+    navigate(-1);
+  };
 
   return (
     <>
@@ -137,14 +149,14 @@ const BuatPesan = () => {
                         <div className="row">
                           <div className="form-group col-md-12">
                             <Select
-                              options={options}
+                              options={optionsUser}
                               placeholder="Kepada:"
                               isMulti
                               name="colors"
                               className="basic-multi-select"
                               classNamePrefix="select"
                               onChange={(selectedOptions) =>
-                                handleChange(selectedOptions, "nama")
+                                handleChangeSelect(selectedOptions, "nama")
                               }
                             />
                           </div>
@@ -155,6 +167,7 @@ const BuatPesan = () => {
                             <input
                               className="form-control"
                               placeholder="Subjek:"
+                              onChange={handlerCreateMessage("subjek")}
                             />
                           </div>
                         </div>

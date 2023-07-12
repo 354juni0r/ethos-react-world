@@ -8,6 +8,7 @@ import MemoArsip from "./componentsMemo/memoArsip";
 import MemoSampah from "./componentsMemo/memoSampah";
 import MemoIsi from "./componentsMemo/isimemo/memoIsi";
 import MemoRevisi from "./componentsMemo/isimemo/memoRevisi";
+import DrafMemo from "./componentsMemo/isimemo/drafMemo";
 const Index = () => {
   const [showState, setShowState] = useState({
     showPengajuan: true,
@@ -18,6 +19,9 @@ const Index = () => {
     showMemoDisetujui: false,
     showMemoPending: false,
     showMemoRevisi: false,
+    showMemoRevisiBerbintang: false,
+    showMemoDraft: false,
+    showMemoDraftBerbintang: false,
   });
 
   const toggleState = (stateKey) => {
@@ -29,8 +33,13 @@ const Index = () => {
       showArsip: false,
       showSampah: false,
       showMemoDisetujui: false,
+      showMemoDisetujuiBerbintang: false,
       showMemoPending: false,
+      showMemoPendingBerbintang: false,
       showMemoRevisi: false,
+      showMemoRevisiBerbintang: false,
+      showMemoDraft: false,
+      showMemoDraftBerbintang: false,
       [stateKey]: true,
     }));
   };
@@ -41,8 +50,17 @@ const Index = () => {
   const toggleArsip = () => toggleState("showArsip");
   const toggleSampah = () => toggleState("showSampah");
   const toggleOpenMemoDisetujui = (id) => toggleState("showMemoDisetujui");
+  const toggleOpenMemoDisetujuiBerbintang = (id) =>
+    toggleState("showMemoDisetujuiBerbintang");
   const toggleOpenMemoPending = () => toggleState("showMemoPending");
+  const toggleOpenMemoPendingBerbintang = () =>
+    toggleState("showMemoPendingBerbintang");
   const toggleOpenMemoRevisi = () => toggleState("showMemoRevisi");
+  const toggleOpenMemoRevisiBerbintang = () =>
+    toggleState("showMemoRevisiBerbintang");
+  const toggleOpenMemoDraft = () => toggleState("showMemoDraft");
+  const toggleOpenMemoDraftBerbintang = () =>
+    toggleState("showMemoDraftBerbintang");
 
   return (
     <>
@@ -68,26 +86,57 @@ const Index = () => {
               />
             </div>
             <div className="col-md-9">
-              {showState.showPengajuan && <MemoPengajuan />}
-
-              {showState.showBerbintang && (
-                <MemoBerbintang
+              {showState.showPengajuan && (
+                <MemoPengajuan
                   onClickMemoDisetujui={toggleOpenMemoDisetujui}
                   onClickMemoPending={toggleOpenMemoPending}
                   onClickMemoRevisi={toggleOpenMemoRevisi}
+                  onClickMemoDraft={toggleOpenMemoDraft}
+                />
+              )}
+
+              {showState.showBerbintang && (
+                <MemoBerbintang
+                  onClickMemoDisetujui={toggleOpenMemoDisetujuiBerbintang}
+                  onClickMemoPending={toggleOpenMemoPendingBerbintang}
+                  onClickMemoRevisi={toggleOpenMemoRevisiBerbintang}
+                  onClickMemoDraft={toggleOpenMemoDraftBerbintang}
                 />
               )}
               {showState.showTerkirim && <MemoTerkirim />}
               {showState.showArsip && <MemoArsip />}
               {showState.showSampah && <MemoSampah />}
               {showState.showMemoDisetujui && (
-                <MemoIsi onClick={toggleBerbintang} textMemo={"disetujui"} />
+                <MemoIsi onClick={togglePengajuan} textMemo={"disetujui"} />
+              )}
+              {showState.showMemoDisetujuiBerbintang && (
+                <MemoIsi
+                  onClick={togglePengajuan}
+                  textMemo={"disetujui"}
+                  name={"berbintang"}
+                />
               )}
               {showState.showMemoPending && (
-                <MemoIsi onClick={toggleBerbintang} textMemo={"pending"} />
+                <MemoIsi onClick={togglePengajuan} textMemo={"pending"} />
+              )}
+              {showState.showMemoPendingBerbintang && (
+                <MemoIsi
+                  onClick={togglePengajuan}
+                  textMemo={"pending"}
+                  name={"berbintang"}
+                />
               )}
               {showState.showMemoRevisi && (
-                <MemoRevisi onClick={toggleBerbintang} />
+                <MemoRevisi onClick={togglePengajuan} />
+              )}
+              {showState.showMemoRevisiBerbintang && (
+                <MemoRevisi onClick={togglePengajuan} name={"berbintang"} />
+              )}
+              {showState.showMemoDraft && (
+                <DrafMemo onClick={togglePengajuan} />
+              )}
+              {showState.showMemoDraftBerbintang && (
+                <DrafMemo onClick={togglePengajuan} name={"berbintang"} />
               )}
             </div>
           </div>

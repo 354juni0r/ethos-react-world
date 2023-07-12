@@ -221,6 +221,11 @@ a {
   text-decoration: none;
   background-color: transparent
 }
+.text{
+  color: #6D6D6D;
+  text-decoration: none;
+  background-color: transparent
+}
 /* a:hover {
   color: #0056b3;
   text-decoration: none
