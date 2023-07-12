@@ -78,12 +78,12 @@ const Index = () => {
         <section className="content">
           <div className="row">
             <div className="col-md-3">
-              <a
-                href="/pesan/buatpesan"
+              <Link
+                to="/pesan/buatpesan"
                 className="btn btn-primary btn-block mb-3"
               >
                 Buat Pesan
-              </a>
+              </Link>
               <div className="card">
                 <div className="card-header-green p-1">
                   <ul className="nav nav-pills2 flex-column">
@@ -293,9 +293,7 @@ const Index = () => {
                                 <td className="mailbox-subject">
                                   <b
                                     className={`${
-                                      DataMemo.baca == "true"
-                                        ? "text"
-                                        : ""
+                                      DataMemo.baca == "true" ? "text" : ""
                                     }`}
                                   >
                                     {DataMemo.subjek}
