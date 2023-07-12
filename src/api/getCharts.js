@@ -1,10 +1,10 @@
-import axios from "./axios"
-import { baseURL } from "./endpoint";
 
-const getCharts = async () => {
+import { baseURlPost, baseURlView } from "./baseAPI";
     
-
-    const {data} = await axios.get(`${baseURL}/Charts1`)
+const getCharts = async () => {
+   
+    const data = await baseURlPost.get("grafik")
+    // console.log(data)
     return data;
 
 }

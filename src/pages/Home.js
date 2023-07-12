@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react'
 import Select from 'react-select'
 import {
   Chart as ChartJS,
@@ -43,6 +43,7 @@ import ChartsPartner4 from './charts/chartsPartner/charts4';
 import ChartsPartner5 from './charts/chartsPartner/charts5';
 import ChartsPartner6 from './charts/chartsPartner/charts6';
 import ChartsPartner7 from './charts/chartsPartner/charts7';
+import getCharts from '../api/getCharts';
 
 
 ChartJS.register(
@@ -65,6 +66,27 @@ export const Home = () => {
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
   ]
+  const [isFetching, setIsFetching] = useState(false);
+
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("chart")) {
+      setIsFetching(true);
+      // fetch Data ke sesion storage
+      getCharts().then((data)=>{sessionStorage.setItem("chart", JSON.stringify(data)); setIsFetching(false);})
+     
+    }else{
+      getCharts().then((data)=>{
+        if (JSON.stringify(data) !== sessionStorage.getItem("chart")) {
+        console.log(data)
+        sessionStorage.setItem("chart", JSON.stringify(data));
+        setIsFetching(!isFetching);
+        console.log("daata berubah")
+      }})
+      
+      
+    }
+    }, []);
   return (
     <>
       <div className="content-wrapper">
@@ -165,16 +187,16 @@ export const Home = () => {
               <div className='card-body'>
                 <div className='tab-content' id="custom-tabs-four-tabContent">
                   <div className="tab-pane fade show active" id="custom-tabs-four-total" role="tabpanel" aria-labelledby="custom-tabs-four-total-tab">
-                    <Charts />
-                    <Charts2 />
+                    <Charts isFetching={isFetching} />
+                    {/* <Charts2 />
                     <Charts3 />
                     <Charts4 />
                     <Charts5 />
-                    <Charts6 />
+                    <Charts6 /> */}
                   </div>
 
                   <div className="tab-pane fade" id="custom-tabs-four-internal" role="tabpanel" aria-labelledby="custom-tabs-four-internal-tab">
-                    <ChartsInternal />
+                    {/* <ChartsInternal />
                     <ChartsInternal2 />
                     <ChartsInternal3 />
                     <ChartsInternal4 />
@@ -190,17 +212,17 @@ export const Home = () => {
                     <ChartsInternal14 />
                     <ChartsInternal15 />
                     <ChartsInternal16 />
-                    <ChartsInternal17 />
+                    <ChartsInternal17 /> */}
                   </div>
 
                   <div className="tab-pane fade" id="custom-tabs-four-partner" role="tabpanel" aria-labelledby="custom-tabs-four-partner-tab">
-                    <ChartsPartner />
+                    {/* <ChartsPartner />
                     <ChartsPartner2 />
                     <ChartsPartner3 />
                     <ChartsPartner4 />
                     <ChartsPartner5 />
                     <ChartsPartner6 />
-                    <ChartsPartner7 />
+                    <ChartsPartner7 /> */}
                   </div>
 
                   <div className="tab-pane fade" id="custom-tabs-four-offline" role="tabpanel" aria-labelledby="custom-tabs-four-offline-tab">
