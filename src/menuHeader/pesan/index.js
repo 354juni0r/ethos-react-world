@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { getDataMemo, getDataPesan, grafik } from "../../api/axios";
+import { getDataMemo, getDataPesan } from "../../api/axios";
 import CheckBox from "./componentsPesan/checkbox";
 import { deletePesan } from "../../api/axios";
 const Index = () => {
@@ -10,7 +10,7 @@ const Index = () => {
       setDataMessage(JSON.parse(atob(sessionStorage.getItem("dataPesan"))));
     } else {
       getDataPesan().then((res) => {
-        sessionStorage.setItem("dataPesan",btoa(JSON.stringify(res)) );
+        sessionStorage.setItem("dataPesan", btoa(JSON.stringify(res)));
         setDataMessage(res);
       });
     }
@@ -45,12 +45,11 @@ const Index = () => {
     await deletePesan(selectedIdPesan[0]);
     setSelectedIdPesan([]);
   };
-  useEffect(() => {
-    // grafik();
-    getDataMemo().then((res) => {
-      setDataAPi(res);
-    });
-  }, [selectedIdPesan]);
+  // useEffect(() => {
+  //   getDataMemo().then((res) => {
+  //     setDataAPi(res);
+  //   });
+  // }, [selectedIdPesan]);
 
   const confirmDeletePesan = () => {
     if (window.confirm("Apakah Anda yakin ingin menghapus pesan ini?")) {

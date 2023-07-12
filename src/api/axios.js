@@ -10,7 +10,10 @@ export const getDataMemo = async () => {
 };
 
 export const addPesan = async (body) => {
-  const save = await axios.post(`${process.env.REACT_APP_API_LOCAL}DataMemo`, body);
+  const save = await axios.post(
+    `${process.env.REACT_APP_API_LOCAL}DataMemo`,
+    body
+  );
   return save;
 };
 
@@ -23,7 +26,10 @@ export const getData = async () => {
 };
 
 export const addData = async (body) => {
-  const save = await axios.post(`${process.env.REACT_APP_API_LOCAL}dataProject`, body);
+  const save = await axios.post(
+    `${process.env.REACT_APP_API_LOCAL}dataProject`,
+    body
+  );
   return save;
 };
 
@@ -50,14 +56,18 @@ export const countPesan = async () => {
 };
 
 export const getUsers = async () => {
-  const { data } = await axios.get(
-    `${process.env.REACT_APP_API_PROD_VIEW}users`,
-    {
-      headers: {
-        secretcode: process.env.REACT_APP_API_SECRETCODE,
-        secretkey: process.env.REACT_APP_API_SECRETKEY,
-      },
-    }
-  );
-  return data.data;
+  try {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_API_PROD_VIEW}users`,
+      {
+        headers: {
+          secretcode: process.env.REACT_APP_API_SECRETCODE,
+          secretkey: process.env.REACT_APP_API_SECRETKEY,
+        },
+      }
+    );
+    return data.data;
+  } catch (error) {
+    console.log(error);
+  }
 };

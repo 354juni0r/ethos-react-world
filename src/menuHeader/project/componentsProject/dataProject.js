@@ -1,7 +1,7 @@
 const dataDami = [
   {
-    'Nama Project': "Project A",
-    'Tim Member': {
+    "Nama Project": "Project A",
+    "Tim Member": {
       linkPic1: "dist/img/user2-160x160.jpg",
       linkPic2: "linkGambar2",
       linkPic3: "linkGambar3",
@@ -11,8 +11,8 @@ const dataDami = [
     Deadline: "2023-06-30",
   },
   {
-    'Nama Project': "Project B",
-    'Tim Member': {
+    "Nama Project": "Project B",
+    "Tim Member": {
       linkPic1: "dist/img/user2-160x160.jpg",
       linkPic2: "linkGambar5",
       linkPic3: "linkGambar6",
@@ -22,8 +22,8 @@ const dataDami = [
     Deadline: "2023-07-15",
   },
   {
-    'Nama Project': "Project C",
-    'Tim Member': {
+    "Nama Project": "Project C",
+    "Tim Member": {
       linkPic1: "dist/img/user2-160x160.jpg",
       linkPic2: "linkGambar8",
       linkPic3: "linkGambar9",
@@ -33,8 +33,8 @@ const dataDami = [
     Deadline: "2023-08-01",
   },
   {
-    'Nama Project': "Project D",
-    'Tim Member': {
+    "Nama Project": "Project D",
+    "Tim Member": {
       linkPic1: "dist/img/user2-160x160.jpg",
       linkPic2: "linkGambar18",
       linkPic3: "linkGambar19",
@@ -45,4 +45,4 @@ const dataDami = [
   },
 ];
 
-export default dataDami
+export default dataDami;

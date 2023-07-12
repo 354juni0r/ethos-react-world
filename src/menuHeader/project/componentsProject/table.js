@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
-import ProgesBar from "./progesBar"
+import ProgesBar from "./progesBar";
 import { getData } from "../../../api/axios";
+import dataDami from "./dataProject";
 
 export default function Table() {
-  const [dataApi, setDataAPi] = useState([]);
-  useEffect(() => {
-    getData().then((res) => {
-      setDataAPi(res);
-    });
-    getData();
-  }, [dataApi]);
+  // const [dataApi, setDataAPi] = useState([]);
+  // useEffect(() => {
+  //   getData().then((res) => {
+  //     setDataAPi(res);
+  //   });
+  //   getData();
+  // }, [dataApi]);
 
   const column =
-    dataApi.length > 0 && dataApi[0]
-      ? Object.keys(dataApi[0]).filter((key) => key !== "id")
+    dataDami.length > 0 && dataDami[0]
+      ? Object.keys(dataDami[0]).filter((key) => key !== "id")
       : [];
   return (
     <div className="table-responsive">
@@ -38,7 +39,7 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-          {dataApi.map((item, i) => (
+          {dataDami.map((item, i) => (
             <tr key={i}>
               {column.map((header, k) => (
                 <td key={k} className="nama">
