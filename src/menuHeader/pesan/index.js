@@ -7,10 +7,10 @@ const Index = () => {
   const [dataMessage, setDataMessage] = useState([]);
   useEffect(() => {
     if (sessionStorage.getItem("dataPesan")) {
-      setDataMessage(JSON.parse(sessionStorage.getItem("dataPesan")));
+      setDataMessage(JSON.parse(atob(sessionStorage.getItem("dataPesan"))));
     } else {
       getDataPesan().then((res) => {
-        sessionStorage.setItem("dataPesan", JSON.stringify(res));
+        sessionStorage.setItem("dataPesan", btoa(JSON.stringify(res)));
         setDataMessage(res);
       });
     }

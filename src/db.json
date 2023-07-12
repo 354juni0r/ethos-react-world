@@ -272,6 +272,18 @@
       "Status": "Ditugaskan",
       "Deadline": "2023-08-01",
       "id": 8
+    },
+    {
+      "Nama Project": "dddddd",
+      "Tim Member": {
+        "linkPic1": "dist/img/user2-160x160.jpg",
+        "linkPic2": "linkGambar18",
+        "linkPic3": "linkGambar19"
+      },
+      "Proges": 70,
+      "Status": "Ditugaskan",
+      "Deadline": "2023-08-01",
+      "id": 9
     }
   ]
 }
