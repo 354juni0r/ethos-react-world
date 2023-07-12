@@ -28,7 +28,7 @@ export const addData = async (body) => {
 };
 
 export const getDataPesan = async () => {
-  const data = await axios.get(`${process.env.REACT_APP_API_URL_VIEW}/pesan`, {
+  const data = await axios.get(`${process.env.REACT_APP_API_PROD_VIEW}pesan`, {
     headers: {
       secretcode: process.env.REACT_APP_API_SECRETCODE,
       secretkey: process.env.REACT_APP_API_SECRETKEY,
@@ -38,7 +38,7 @@ export const getDataPesan = async () => {
 };
 export const countPesan = async () => {
   const { data } = await axios.get(
-    `${process.env.REACT_APP_API_URL_VIEW}/count/pesan`,
+    `${process.env.REACT_APP_API_PROD_VIEW}count/pesan`,
     {
       headers: {
         secretcode: process.env.REACT_APP_API_SECRETCODE,
@@ -51,7 +51,7 @@ export const countPesan = async () => {
 
 export const getUsers = async () => {
   const { data } = await axios.get(
-    `${process.env.REACT_APP_API_URL_VIEW}/users`,
+    `${process.env.REACT_APP_API_PROD_VIEW}users`,
     {
       headers: {
         secretcode: process.env.REACT_APP_API_SECRETCODE,
