@@ -4,12 +4,12 @@ import Select from 'react-select'
 import { Bar } from 'react-chartjs-2';
 import Loading from '../loading';
 
- const options = {
+const options = {
     responsive: true,
     staccked: true,
     plugins: {
       legend: {
-        position: 'bottom',
+        position: 'right',
       },
     },
     scales: {
@@ -22,7 +22,7 @@ import Loading from '../loading';
       },
   };
 
-const Charts3 = () => {
+const ChartsPartner5 = () => {
     const [dataChart, setChart] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
@@ -44,27 +44,99 @@ const Charts3 = () => {
       const data = {
         datasets: [
           {
-            label: 'Akuisisi',
+            label: 'ETA01',
             data: dataChart,
             backgroundColor: "#619A3F",
             type: "bar"
           },
           {
-            label: 'CRM',
+            label: 'LIN01',
             data: dataChart,
             backgroundColor: "#FF9E1D",
             type: "bar"
           },
           {
-            label: 'MP',
+            label: 'FRE01',
             data: dataChart,
             backgroundColor: "#D9E021",
             type: "bar"
           },
           {
-            label: 'Offline',
+            label: 'NUT01',
             data: dataChart,
             backgroundColor: "#06AAFF",
+            type: "bar"
+          },
+          {
+            label: 'WEH01',
+            data: dataChart,
+            backgroundColor: "#FB9A99",
+            type: "bar"
+          },
+          {
+            label: 'GIZ01',
+            data: dataChart,
+            backgroundColor: "#E31A1C",
+            type: "bar"
+          },
+          {
+            label: 'ZYM01',
+            data: dataChart,
+            backgroundColor: "#FDBF6F",
+            type: "bar"
+          },
+          {
+            label: 'BIO02',
+            data: dataChart,
+            backgroundColor: "#FF7F00",
+            type: "bar"
+          },
+          {
+            label: 'RUB01',
+            data: dataChart,
+            backgroundColor: "#CAB2D6",
+            type: "bar"
+          },
+          {
+            label: 'VIS01',
+            data: dataChart,
+            backgroundColor: "#6A3D9A",
+            type: "bar"
+          },
+          {
+            label: 'Lainnya',
+            data: dataChart,
+            backgroundColor: "#FFFF99",
+            type: "bar"
+          },
+          {
+            label: 'GEN01',
+            data: dataChart,
+            backgroundColor: "#B15928",
+            type: "bar"
+          },
+          {
+            label: 'BRI01',
+            data: dataChart,
+            backgroundColor: "#A6CEE3",
+            type: "bar"
+          },
+          {
+            label: 'KUT01',
+            data: dataChart,
+            backgroundColor: "#1F78B4",
+            type: "bar"
+          },
+          {
+            label: 'OPT01',
+            data: dataChart,
+            backgroundColor: "#C3DE9E",
+            type: "bar"
+          },
+          {
+            label: 'ROY03',
+            data: dataChart,
+            backgroundColor: "#87BD3D",
             type: "bar"
           },
         ],
@@ -81,12 +153,12 @@ const Charts3 = () => {
         <div className='container row form-group'>
             <div className='col-md-2'></div>
             <div className='col-md-8 text-center'>
-                <h3>Kontribusi Per Channel By Omset</h3>
-                <i className='nama'>*Belum dikurangi return, sales April menggunakan perkiraan sales akhir bulan</i>
+                <h3>Sales Partner By Omset</h3>
+                <i className='nama'>*Sales bulan April menggunakan perkiraan sales akhir bulan</i>
             </div>
             <div className='col-md-2'>
                 <select className="form-control">
-                    <option>option 1</option>
+                    <option>By Omset</option>
                     <option>option 2</option>
                     <option>option 3</option>
                     <option>option 4</option>
@@ -95,27 +167,6 @@ const Charts3 = () => {
             </div>
         </div>
         
-        <div className='container row form-group'>
-            <div className='col-md-6'>
-                <h6 className='nama'>JK1</h6>
-                <Select options={selectOptions} placeholder="Kepada:" 
-                    isMulti
-                    name="colors"
-                    className="basic-multi-select"
-                    classNamePrefix="select" 
-                />
-            </div>
-            <div className='col-md-6'>
-                <h6 className='nama'>GROUP 1</h6>
-                <Select options={selectOptions} placeholder="Kepada:" 
-                    isMulti
-                    name="colors"
-                    className="basic-multi-select"
-                    classNamePrefix="select" 
-                />
-            </div>
-        </div>
-
         <div className='container row form-group'>
             <div className='col-md-6'>
                 <h6 className='nama'>TEAM</h6>
@@ -137,13 +188,15 @@ const Charts3 = () => {
             </div>
         </div>
 
-        <div className='container row form-group'>
-          {isLoading && <Loading />}
-          <Bar options={options} data={data} />
+        <div className='container form-group row'>
+            <div className='col-md-12'>
+              {isLoading && <Loading />}
+              <Bar options={options} data={data} />
+            </div>
         </div>
       </div>
     </div>
   )
 }
 
-export default Charts3
+export default ChartsPartner5

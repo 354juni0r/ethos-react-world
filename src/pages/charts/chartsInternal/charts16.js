@@ -4,12 +4,12 @@ import Select from 'react-select'
 import { Bar } from 'react-chartjs-2';
 import Loading from '../loading';
 
- const options = {
+const options = {
     responsive: true,
     staccked: true,
     plugins: {
       legend: {
-        position: 'bottom',
+        position: 'right',
       },
     },
     scales: {
@@ -22,7 +22,7 @@ import Loading from '../loading';
       },
   };
 
-const ChartsInternal3 = () => {
+const ChartsInternal16 = () => {
     const [dataChart, setChart] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
@@ -44,21 +44,69 @@ const ChartsInternal3 = () => {
       const data = {
         datasets: [
           {
-            label: 'Akuisisi',
+            label: 'Shopee',
             data: dataChart,
             backgroundColor: "#619A3F",
             type: "bar"
           },
           {
-            label: 'CRM',
+            label: 'Lazada',
             data: dataChart,
             backgroundColor: "#FF9E1D",
             type: "bar"
           },
           {
-            label: 'MP',
+            label: 'Tokopedia',
             data: dataChart,
             backgroundColor: "#D9E021",
+            type: "bar"
+          },
+          {
+            label: 'Tik Tok',
+            data: dataChart,
+            backgroundColor: "#06AAFF",
+            type: "bar"
+          },
+          {
+            label: 'Bukalapak',
+            data: dataChart,
+            backgroundColor: "#FB9A99",
+            type: "bar"
+          },
+          {
+            label: 'Akulaku',
+            data: dataChart,
+            backgroundColor: "#E31A1C",
+            type: "bar"
+          },
+          {
+            label: 'Blibli',
+            data: dataChart,
+            backgroundColor: "#FDBF6F",
+            type: "bar"
+          },
+          {
+            label: 'Lainnya',
+            data: dataChart,
+            backgroundColor: "#FF7F00",
+            type: "bar"
+          },
+          {
+            label: 'COD',
+            data: dataChart,
+            backgroundColor: "#B15928",
+            type: "bar"
+          },
+          {
+            label: 'JD.ID',
+            data: dataChart,
+            backgroundColor: "#C3DE9E",
+            type: "bar"
+          },
+          {
+            label: 'Transfer',
+            data: dataChart,
+            backgroundColor: "#87BD3D",
             type: "bar"
           },
         ],
@@ -72,16 +120,14 @@ const ChartsInternal3 = () => {
   return (
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
-        <div className='container row form-group'>
-            <div className='col-md-12 text-center'>
-                <h3>Kontribusi Per Channel Internal By Omset</h3>
-                <i className='nama'>*Belum dikurangi return, sales April menggunakan perkiraan sales akhir bulan</i>
-            </div>
+        <div className='container form-group text-center'>
+            <h3>Omset MP Per Platform</h3>
+            <i className='nama'>*Belum dikurangi return, sales April menggunakan sales update terakhir</i>
         </div>
-
+        
         <div className='container row form-group'>
             <div className='col-md-6'>
-                <h6 className='nama'>GROUP 1</h6>
+                <h6 className='nama'>PLATFORM</h6>
                 <Select options={selectOptions} placeholder="Kepada:" 
                     isMulti
                     name="colors"
@@ -90,7 +136,7 @@ const ChartsInternal3 = () => {
                 />
             </div>
             <div className='col-md-6'>
-                <h6 className='nama'>SKU</h6>
+                <h6 className='nama'>SKU 1</h6>
                 <Select options={selectOptions} placeholder="Kepada:" 
                     isMulti
                     name="colors"
@@ -100,7 +146,7 @@ const ChartsInternal3 = () => {
             </div>
         </div>
 
-        <div className='container row form-group'>
+        <div className='container form-group row'>
           {isLoading && <Loading />}
           <Bar options={options} data={data} />
         </div>
@@ -109,4 +155,4 @@ const ChartsInternal3 = () => {
   )
 }
 
-export default ChartsInternal3
+export default ChartsInternal16

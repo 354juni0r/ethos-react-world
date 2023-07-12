@@ -4,25 +4,22 @@ import Select from 'react-select'
 import { Bar } from 'react-chartjs-2';
 import Loading from '../loading';
 
- const options = {
-    responsive: true,
-    staccked: true,
-    plugins: {
-      legend: {
-        position: 'bottom',
-      },
+const options = {
+  responsive: true,
+  indexAxis: 'y',
+  elements: {
+    bar: {
+      borderWidth: 2,
     },
-    scales: {
-        x: {
-          stacked: true,
-        },
-        y: {
-          stacked: true,
-        },
-      },
-  };
+  },
+  plugins: {
+    legend: {
+      position: false,
+    },
+  },
+};
 
-const ChartsInternal3 = () => {
+const ChartsPartner = () => {
     const [dataChart, setChart] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
@@ -45,20 +42,8 @@ const ChartsInternal3 = () => {
         datasets: [
           {
             label: 'Akuisisi',
-            data: dataChart,
+            data: dataChart? dataChart.map((data)=>{return {x:data.y, y:data.x}}) : null,
             backgroundColor: "#619A3F",
-            type: "bar"
-          },
-          {
-            label: 'CRM',
-            data: dataChart,
-            backgroundColor: "#FF9E1D",
-            type: "bar"
-          },
-          {
-            label: 'MP',
-            data: dataChart,
-            backgroundColor: "#D9E021",
             type: "bar"
           },
         ],
@@ -72,25 +57,13 @@ const ChartsInternal3 = () => {
   return (
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
-        <div className='container row form-group'>
-            <div className='col-md-12 text-center'>
-                <h3>Kontribusi Per Channel Internal By Omset</h3>
-                <i className='nama'>*Belum dikurangi return, sales April menggunakan perkiraan sales akhir bulan</i>
-            </div>
-        </div>
-
-        <div className='container row form-group'>
-            <div className='col-md-6'>
-                <h6 className='nama'>GROUP 1</h6>
-                <Select options={selectOptions} placeholder="Kepada:" 
-                    isMulti
-                    name="colors"
-                    className="basic-multi-select"
-                    classNamePrefix="select" 
-                />
-            </div>
-            <div className='col-md-6'>
-                <h6 className='nama'>SKU</h6>
+        <div className='container form-group row'>
+          <div className='col-md-6'>
+            <h3>Top 5 Partner</h3>
+            <i className='nama'>*Rentang waktu pilih di samping</i>
+          </div>
+          <div className='col-md-6'>
+                <h6 className='nama'>Bulan</h6>
                 <Select options={selectOptions} placeholder="Kepada:" 
                     isMulti
                     name="colors"
@@ -109,4 +82,4 @@ const ChartsInternal3 = () => {
   )
 }
 
-export default ChartsInternal3
+export default ChartsPartner

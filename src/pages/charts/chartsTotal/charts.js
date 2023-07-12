@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../../api/getCharts'
 import { Bar } from 'react-chartjs-2';
+import Loading from '../loading';
 
 const options = {
     responsive: true,
@@ -11,58 +11,57 @@ const options = {
     },
   };
 
-const Charts = () => {
+const Charts = ({isFetching}) => {
     const [dataChart, setChart] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
-        if (sessionStorage.getItem("chart")) {
+      if (sessionStorage.getItem("chart")) {
+            setIsLoading(true)
             // Restore the contents of the text field
-            const data = JSON.parse(sessionStorage.getItem("chart"));
+            const data = (JSON.parse(sessionStorage.getItem("chart"))).data.sales;
+            if(data===null) {
+              alert("DATA TIDAK ADA")
+            }
             setChart(data)
-          }else{
-            getCharts().then((data) => {
-                setChart(data)
-                // Save data to sessionStorage
-                sessionStorage.setItem("chart", JSON.stringify(data));
-              });
+            setIsLoading(false)
           }
-        
-      }, []);
+      }, [isFetching]);
 
       const data = {
         datasets: [
           {
             label: 'Target',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#619A3F",
             type: "bar"
           },
           {
             label: 'Omset',
-            data: dataChart,
+            data: dataChart? dataChart.omset : null,
             backgroundColor: "#FF9E1D",
             type: "bar"
           },
-          {
-            label: 'Kumulatif Target',
-            data: dataChart,
-            backgroundColor: "#BABABA",
-            borderColor: "#BABABA",
-            type: "line",
-          },
-          {
-            label: 'Kumulatif Omset',
-            data: dataChart,
-            backgroundColor: "#FFD59D",
-            borderColor: "#FFD59D",
-            type: "line",
-          },
-          {
-            label: 'Selisih Kumulatif Target dan Omset',
-            data: dataChart,
-            backgroundColor: "#B0CD9F",
-            borderColor: "#B0CD9F",
-            type: "line",
-          },
+          // {
+          //   label: 'Kumulatif Target',
+          //   data: dataChart,
+          //   backgroundColor: "#BABABA",
+          //   borderColor: "#BABABA",
+          //   type: "line",
+          // },
+          // {
+          //   label: 'Kumulatif Omset',
+          //   data: dataChart,
+          //   backgroundColor: "#FFD59D",
+          //   borderColor: "#FFD59D",
+          //   type: "line",
+          // },
+          // {
+          //   label: 'Selisih Kumulatif Target dan Omset',
+          //   data: dataChart,
+          //   backgroundColor: "#B0CD9F",
+          //   borderColor: "#B0CD9F",
+          //   type: "line",
+          // },
         ],
       };
   return (
@@ -74,6 +73,7 @@ const Charts = () => {
         </div>
         
         <div className='container form-group row'>
+          {isLoading && <Loading />}
           <Bar options={options} data={data} />
         </div>
       </div>

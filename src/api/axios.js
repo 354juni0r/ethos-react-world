@@ -5,30 +5,30 @@ export default axios.create({
 });
 
 export const getDataMemo = async () => {
-  const data = await axios.get("http://localhost:3030/DataMemo");
+  const data = await axios.get(`${process.env.REACT_APP_API_LOCAL}DataMemo`);
   return data.data;
 };
 
 export const addPesan = async (body) => {
-  const save = await axios.post("http://localhost:3030/DataMemo", body);
+  const save = await axios.post(`${process.env.REACT_APP_API_LOCAL}DataMemo`, body);
   return save;
 };
 
 export const deletePesan = async (id) => {
-  return await axios.delete(`http://localhost:3030/DataMemo/${id}`);
+  return await axios.delete(`${process.env.REACT_APP_API_LOCAL}DataMemo/${id}`);
 };
 export const getData = async () => {
-  const data = await axios.get("http://localhost:3030/dataProject");
+  const data = await axios.get(`${process.env.REACT_APP_API_LOCAL}dataProject`);
   return data.data;
 };
 
 export const addData = async (body) => {
-  const save = await axios.post("http://localhost:3030/dataProject", body);
+  const save = await axios.post(`${process.env.REACT_APP_API_LOCAL}dataProject`, body);
   return save;
 };
 
 export const getDataPesan = async () => {
-  const data = await axios.get(`${process.env.REACT_APP_API_URL_VIEW}/pesan`, {
+  const data = await axios.get(`${process.env.REACT_APP_API_PROD_VIEW}pesan`, {
     headers: {
       secretcode: process.env.REACT_APP_API_SECRETCODE,
       secretkey: process.env.REACT_APP_API_SECRETKEY,
@@ -38,7 +38,7 @@ export const getDataPesan = async () => {
 };
 export const countPesan = async () => {
   const { data } = await axios.get(
-    `${process.env.REACT_APP_API_URL_VIEW}/count/pesan`,
+    `${process.env.REACT_APP_API_PROD_VIEW}count/pesan`,
     {
       headers: {
         secretcode: process.env.REACT_APP_API_SECRETCODE,
@@ -51,7 +51,7 @@ export const countPesan = async () => {
 
 export const getUsers = async () => {
   const { data } = await axios.get(
-    `${process.env.REACT_APP_API_URL_VIEW}/users`,
+    `${process.env.REACT_APP_API_PROD_VIEW}users`,
     {
       headers: {
         secretcode: process.env.REACT_APP_API_SECRETCODE,
@@ -59,5 +59,5 @@ export const getUsers = async () => {
       },
     }
   );
-  return data.data;
+  return data.data;
 };

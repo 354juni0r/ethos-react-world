@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import getCharts from '../../../api/getCharts'
-import Select from 'react-select'
 import { Bar } from 'react-chartjs-2';
 import Loading from '../loading';
 
@@ -22,7 +21,7 @@ const options = {
       },
   };
 
-const Charts4 = () => {
+const ChartsPartner7 = () => {
     const [dataChart, setChart] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
@@ -151,29 +150,7 @@ const Charts4 = () => {
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
         <div className='container form-group text-center'>
-            <h3>Sales Total By Quantity SKU</h3>
-            <i className='nama'>*Belum dikurangi return, sales April menggunakan perkiraan sales akhir bulan</i>
-        </div>
-        
-        <div className='container row form-group'>
-            <div className='col-md-6'>
-                <h6 className='nama'>JK1</h6>
-                <Select options={selectOptions} placeholder="Kepada:" 
-                    isMulti
-                    name="colors"
-                    className="basic-multi-select"
-                    classNamePrefix="select" 
-                />
-            </div>
-            <div className='col-md-6'>
-                <h6 className='nama'>SKU</h6>
-                <Select options={selectOptions} placeholder="Kepada:" 
-                    isMulti
-                    name="colors"
-                    className="basic-multi-select"
-                    classNamePrefix="select" 
-                />
-            </div>
+            <h3>Detail Rata-rata Quantity Harian Partner By SKU (Per Channel)</h3>
         </div>
 
         <div className='container form-group row'>
@@ -259,6 +236,12 @@ const Charts4 = () => {
                     <td>100</td>
                     </tr>
                 </tbody>
+                <thead className='bg-success'>
+                    <tr>
+                    <th>Total</th>
+                    <th>550000</th>
+                    </tr>
+                </thead>
                 </table>
             </div>
 
@@ -268,4 +251,4 @@ const Charts4 = () => {
   )
 }
 
-export default Charts4
+export default ChartsPartner7

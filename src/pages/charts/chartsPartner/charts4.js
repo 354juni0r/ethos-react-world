@@ -22,7 +22,7 @@ import Loading from '../loading';
       },
   };
 
-const ChartsInternal3 = () => {
+const ChartsPartner4 = () => {
     const [dataChart, setChart] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
@@ -73,9 +73,19 @@ const ChartsInternal3 = () => {
     <div className='card'>
       <div className='card-body d-flex flex-column align-items-center'>
         <div className='container row form-group'>
-            <div className='col-md-12 text-center'>
-                <h3>Kontribusi Per Channel Internal By Omset</h3>
+            <div className='col-md-2'></div>
+            <div className='col-md-8 text-center'>
+                <h3>Kontribusi Per Channel Partner By Omset</h3>
                 <i className='nama'>*Belum dikurangi return, sales April menggunakan perkiraan sales akhir bulan</i>
+            </div>
+            <div className='col-md-2'>
+                <select className="form-control">
+                    <option>By Omset</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                </select>
             </div>
         </div>
 
@@ -90,6 +100,18 @@ const ChartsInternal3 = () => {
                 />
             </div>
             <div className='col-md-6'>
+                <h6 className='nama'>TEAM</h6>
+                <Select options={selectOptions} placeholder="Kepada:" 
+                    isMulti
+                    name="colors"
+                    className="basic-multi-select"
+                    classNamePrefix="select" 
+                />
+            </div>
+        </div>
+
+        <div className='container row form-group'>
+            <div className='col-md-12'>
                 <h6 className='nama'>SKU</h6>
                 <Select options={selectOptions} placeholder="Kepada:" 
                     isMulti
@@ -109,4 +131,4 @@ const ChartsInternal3 = () => {
   )
 }
 
-export default ChartsInternal3
+export default ChartsPartner4

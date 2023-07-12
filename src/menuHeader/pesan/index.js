@@ -10,7 +10,7 @@ const Index = () => {
       setDataMessage(JSON.parse(atob(sessionStorage.getItem("dataPesan"))));
     } else {
       getDataPesan().then((res) => {
-        sessionStorage.setItem("dataPesan", btoa(JSON.stringify(res)));
+        sessionStorage.setItem("dataPesan",btoa(JSON.stringify(res)) );
         setDataMessage(res);
       });
     }

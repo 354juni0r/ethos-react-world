@@ -22,7 +22,7 @@ const options = {
       },
   };
 
-const Charts4 = () => {
+const ChartsPartner6 = () => {
     const [dataChart, setChart] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
@@ -176,6 +176,18 @@ const Charts4 = () => {
             </div>
         </div>
 
+        <div className='container row form-group'>
+            <div className='col-md-12'>
+                <h6 className='nama'>SKU</h6>
+                <Select options={selectOptions} placeholder="Kepada:" 
+                    isMulti
+                    name="colors"
+                    className="basic-multi-select"
+                    classNamePrefix="select" 
+                />
+            </div>
+        </div>
+
         <div className='container form-group row'>
             <div className='col-md-10 d-flex align-items-end'>
               {isLoading && <Loading />}
@@ -268,4 +280,4 @@ const Charts4 = () => {
   )
 }
 
-export default Charts4
+export default ChartsPartner6

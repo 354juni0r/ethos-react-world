@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import getCharts from '../../../api/getCharts'
 import { Bar } from 'react-chartjs-2';
+import Loading from '../loading';
 
 const options = {
     responsive: true,
@@ -13,19 +14,21 @@ const options = {
 
 const ChartsInternal11 = () => {
     const [dataChart, setChart] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
-        if (sessionStorage.getItem("chart")) {
-            // Restore the contents of the text field
-            const data = JSON.parse(sessionStorage.getItem("chart"));
-            setChart(data)
-          }else{
-            getCharts().then((data) => {
-                setChart(data)
-                // Save data to sessionStorage
-                sessionStorage.setItem("chart", JSON.stringify(data));
-              });
-          }
-        
+      setIsLoading(true);
+      if (sessionStorage.getItem("chart")) {
+          // Restore the contents of the text field
+          const data = JSON.parse(sessionStorage.getItem("chart"));
+          setChart(data)
+        }else{
+          getCharts().then((data) => {
+              setChart(data)
+              // Save data to sessionStorage
+              sessionStorage.setItem("chart", JSON.stringify(data));
+            });
+        }
+      setIsLoading(false)
       }, []);
 
       const data = {
@@ -57,6 +60,8 @@ const ChartsInternal11 = () => {
         </div>
         
         <div className='container form-group row'>
+          <h1>URUNG BERES!!</h1>
+          {isLoading && <Loading />}
           <Bar options={options} data={data} />
         </div>
       </div>
