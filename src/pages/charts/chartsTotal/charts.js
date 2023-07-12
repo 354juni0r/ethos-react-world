@@ -18,7 +18,7 @@ const Charts = ({isFetching}) => {
       if (sessionStorage.getItem("chart")) {
             setIsLoading(true)
             // Restore the contents of the text field
-            const data = (JSON.parse(sessionStorage.getItem("chart"))).data.sales;
+            const data = (JSON.parse(atob(sessionStorage.getItem("chart")))).data.sales;
             if(data===null) {
               alert("DATA TIDAK ADA")
             }

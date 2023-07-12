@@ -22,48 +22,45 @@ import Loading from '../loading';
       },
   };
 
-const Charts3 = () => {
-    const [dataChart, setChart] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    useEffect(() => {
-      setIsLoading(true);
-      if (sessionStorage.getItem("chart")) {
+const Charts3 = ({isFetching}) => {
+  const [dataChart, setChart] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (sessionStorage.getItem("chart")) {
+          setIsLoading(true)
           // Restore the contents of the text field
-          const data = JSON.parse(sessionStorage.getItem("chart"));
+          const data = (JSON.parse(atob(sessionStorage.getItem("chart")))).data.sales;
+          if(data===null) {
+            alert("DATA TIDAK ADA")
+          }
           setChart(data)
-        }else{
-          getCharts().then((data) => {
-              setChart(data)
-              // Save data to sessionStorage
-              sessionStorage.setItem("chart", JSON.stringify(data));
-            });
+          setIsLoading(false)
         }
-      setIsLoading(false)
-      }, []);
+    }, [isFetching]);
 
       const data = {
         datasets: [
           {
             label: 'Akuisisi',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#619A3F",
             type: "bar"
           },
           {
             label: 'CRM',
-            data: dataChart,
+            data: dataChart? dataChart.omset : null,
             backgroundColor: "#FF9E1D",
             type: "bar"
           },
           {
             label: 'MP',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#D9E021",
             type: "bar"
           },
           {
             label: 'Offline',
-            data: dataChart,
+            data: dataChart? dataChart.omset : null,
             backgroundColor: "#06AAFF",
             type: "bar"
           },
@@ -86,7 +83,7 @@ const Charts3 = () => {
             </div>
             <div className='col-md-2'>
                 <select className="form-control">
-                    <option>option 1</option>
+                    <option>By Omset</option>
                     <option>option 2</option>
                     <option>option 3</option>
                     <option>option 4</option>

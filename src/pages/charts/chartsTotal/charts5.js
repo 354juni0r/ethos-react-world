@@ -13,24 +13,21 @@ const options = {
     },
   };
 
-const Charts5 = () => {
-    const [dataChart, setChart] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    useEffect(() => {
-      setIsLoading(true);
-      if (sessionStorage.getItem("chart")) {
+const Charts5 = ({isFetching}) => {
+  const [dataChart, setChart] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (sessionStorage.getItem("chart")) {
+          setIsLoading(true)
           // Restore the contents of the text field
-          const data = JSON.parse(sessionStorage.getItem("chart"));
+          const data = (JSON.parse(atob(sessionStorage.getItem("chart")))).data.sales;
+          if(data===null) {
+            alert("DATA TIDAK ADA")
+          }
           setChart(data)
-        }else{
-          getCharts().then((data) => {
-              setChart(data)
-              // Save data to sessionStorage
-              sessionStorage.setItem("chart", JSON.stringify(data));
-            });
+          setIsLoading(false)
         }
-      setIsLoading(false)
-      }, []);
+    }, [isFetching]);
 
       const data = {
         labels:[
@@ -39,26 +36,16 @@ const Charts5 = () => {
             'FRE01',
             'NUT01',
             'WEH01',
-            'GIZ01',
-            'ZYM01',
-            'BIO02',
-            'RUB01',
-            'VIS01',
         ],
         datasets: [
           {
-            data: dataChart ? dataChart.map((data)=>{return data.y}) : null,
+            data: dataChart ? dataChart.target.map((data)=>{return data.y}) : null,
             backgroundColor: [
                 "#619A3F",
                 "#FF9E1D",
                 "#D9E021",
                 "#06AAFF",
                 "#FB9A99",
-                "#E31A1C",
-                "#FDBF6F",
-                "#FF7F00",
-                "#CAB2D6",
-                "#6A3D9A",
             ],
           },
         ],

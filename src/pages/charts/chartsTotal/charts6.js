@@ -22,48 +22,45 @@ const options = {
       },
   };
 
-const Charts6= () => {
-    const [dataChart, setChart] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    useEffect(() => {
-      setIsLoading(true);
-      if (sessionStorage.getItem("chart")) {
+const Charts6= ({isFetching}) => {
+  const [dataChart, setChart] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (sessionStorage.getItem("chart")) {
+          setIsLoading(true)
           // Restore the contents of the text field
-          const data = JSON.parse(sessionStorage.getItem("chart"));
+          const data = (JSON.parse(atob(sessionStorage.getItem("chart")))).data.sales;
+          if(data===null) {
+            alert("DATA TIDAK ADA")
+          }
           setChart(data)
-        }else{
-          getCharts().then((data) => {
-              setChart(data)
-              // Save data to sessionStorage
-              sessionStorage.setItem("chart", JSON.stringify(data));
-            });
+          setIsLoading(false)
         }
-      setIsLoading(false)
-      }, []);
+    }, [isFetching]);
 
       const data = {
         datasets: [
           {
             label: 'ETA01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#619A3F",
             type: "bar"
           },
           {
             label: 'LIN01',
-            data: dataChart,
+            data: dataChart? dataChart.omset : null,
             backgroundColor: "#FF9E1D",
             type: "bar"
           },
           {
             label: 'FRE01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#D9E021",
             type: "bar"
           },
           {
             label: 'NUT01',
-            data: dataChart,
+            data: dataChart? dataChart.omset : null,
             backgroundColor: "#06AAFF",
             type: "bar"
           },
@@ -105,11 +102,11 @@ const Charts6= () => {
                     <th>Okt-12</th>
                     </tr>
                 </thead>
-                {dataChart && dataChart.length > 0 &&
+                {dataChart &&
                 <tbody>
                     <tr>
                     <td><button className="btn btn-xs" style={{backgroundColor: "#619A3F",}}/> ETA01</td>
-                    {dataChart.map((menuItem,idx) =>(
+                    {dataChart.target.map((menuItem,idx) =>(
                       <td key={idx}>
                         {menuItem.y}
                       </td>
@@ -117,7 +114,7 @@ const Charts6= () => {
                     </tr>
                     <tr>
                     <td><button className="btn btn-xs" style={{backgroundColor: "#FF9E1D",}}/> LIN01</td>
-                    {dataChart.map((menuItem,idx) =>(
+                    {dataChart.omset.map((menuItem,idx) =>(
                       <td key={idx}>
                         {menuItem.y}
                       </td>
@@ -125,7 +122,7 @@ const Charts6= () => {
                     </tr>
                     <tr>
                     <td><button className="btn btn-xs" style={{backgroundColor: "#D9E021",}}/> FRE01</td>
-                    {dataChart.map((menuItem,idx) =>(
+                    {dataChart.target.map((menuItem,idx) =>(
                       <td key={idx}>
                         {menuItem.y}
                       </td>
@@ -133,7 +130,7 @@ const Charts6= () => {
                     </tr>
                     <tr>
                     <td><button className="btn btn-xs" style={{backgroundColor: "#06AAFF",}}/> NUT01</td>
-                    {dataChart.map((menuItem,idx) =>(
+                    {dataChart.omset.map((menuItem,idx) =>(
                       <td key={idx}>
                         {menuItem.y}
                       </td>

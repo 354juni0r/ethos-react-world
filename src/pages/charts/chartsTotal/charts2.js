@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../../api/getCharts'
 import { Bar } from 'react-chartjs-2';
 import Loading from '../loading';
 
@@ -22,42 +21,39 @@ const options = {
       },
   };
 
-const Charts2 = () => {
+  const Charts2 = ({isFetching}) => {
     const [dataChart, setChart] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
-      setIsLoading(true);
       if (sessionStorage.getItem("chart")) {
-          // Restore the contents of the text field
-          const data = JSON.parse(sessionStorage.getItem("chart"));
-          setChart(data)
-        }else{
-          getCharts().then((data) => {
-              setChart(data)
-              // Save data to sessionStorage
-              sessionStorage.setItem("chart", JSON.stringify(data));
-            });
-        }
-      setIsLoading(false)
-      }, []);
+            setIsLoading(true)
+            // Restore the contents of the text field
+            const data = (JSON.parse(atob(sessionStorage.getItem("chart")))).data.sales;
+            if(data===null) {
+              alert("DATA TIDAK ADA")
+            }
+            setChart(data)
+            setIsLoading(false)
+          }
+      }, [isFetching]);
 
       const data = {
         datasets: [
           {
             label: 'Internal',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#619A3F",
             type: "bar"
           },
           {
             label: 'Partner',
-            data: dataChart,
+            data: dataChart? dataChart.omset : null,
             backgroundColor: "#FF9E1D",
             type: "bar"
           },
           {
             label: 'Target',
-            data: dataChart ? dataChart.map((data)=>{return{x:data.x,y:data.y * 2}}) : null,
+            data: dataChart ? dataChart.total : null,
             backgroundColor: "#BABABA",
             borderColor: "#BABABA",
             type: "line",

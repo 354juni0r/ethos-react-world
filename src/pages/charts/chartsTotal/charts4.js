@@ -22,120 +22,117 @@ const options = {
       },
   };
 
-const Charts4 = () => {
-    const [dataChart, setChart] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    useEffect(() => {
-      setIsLoading(true);
-      if (sessionStorage.getItem("chart")) {
+const Charts4 = ({isFetching}) => {
+  const [dataChart, setChart] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if (sessionStorage.getItem("chart")) {
+          setIsLoading(true)
           // Restore the contents of the text field
-          const data = JSON.parse(sessionStorage.getItem("chart"));
+          const data = (JSON.parse(atob(sessionStorage.getItem("chart")))).data.sales;
+          if(data===null) {
+            alert("DATA TIDAK ADA")
+          }
           setChart(data)
-        }else{
-          getCharts().then((data) => {
-              setChart(data)
-              // Save data to sessionStorage
-              sessionStorage.setItem("chart", JSON.stringify(data));
-            });
+          setIsLoading(false)
         }
-      setIsLoading(false)
-      }, []);
+    }, [isFetching]);
 
       const data = {
         datasets: [
           {
             label: 'ETA01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#619A3F",
             type: "bar"
           },
           {
             label: 'LIN01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#FF9E1D",
             type: "bar"
           },
           {
             label: 'FRE01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#D9E021",
             type: "bar"
           },
           {
             label: 'NUT01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#06AAFF",
             type: "bar"
           },
           {
             label: 'WEH01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#FB9A99",
             type: "bar"
           },
           {
             label: 'GIZ01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#E31A1C",
             type: "bar"
           },
           {
             label: 'ZYM01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#FDBF6F",
             type: "bar"
           },
           {
             label: 'BIO02',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#FF7F00",
             type: "bar"
           },
           {
             label: 'RUB01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#CAB2D6",
             type: "bar"
           },
           {
             label: 'VIS01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#6A3D9A",
             type: "bar"
           },
           {
             label: 'Lainnya',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#FFFF99",
             type: "bar"
           },
           {
             label: 'GEN01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#B15928",
             type: "bar"
           },
           {
             label: 'BRI01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#A6CEE3",
             type: "bar"
           },
           {
             label: 'KUT01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#1F78B4",
             type: "bar"
           },
           {
             label: 'OPT01',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#C3DE9E",
             type: "bar"
           },
           {
             label: 'ROY03',
-            data: dataChart,
+            data: dataChart? dataChart.target : null,
             backgroundColor: "#87BD3D",
             type: "bar"
           },

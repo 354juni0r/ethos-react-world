@@ -73,15 +73,13 @@ export const Home = () => {
     if (!sessionStorage.getItem("chart")) {
       setIsFetching(true);
       // fetch Data ke sesion storage
-      getCharts().then((data)=>{sessionStorage.setItem("chart", JSON.stringify(data)); setIsFetching(false);})
+      getCharts().then((data)=>{sessionStorage.setItem("chart", btoa(JSON.stringify(data))); setIsFetching(false);})
      
     }else{
       getCharts().then((data)=>{
-        if (JSON.stringify(data) !== sessionStorage.getItem("chart")) {
-        console.log(data)
-        sessionStorage.setItem("chart", JSON.stringify(data));
+        if (JSON.stringify(data) !== atob(sessionStorage.getItem("chart"))) {
+        sessionStorage.setItem("chart", btoa(JSON.stringify(data)));
         setIsFetching(!isFetching);
-        console.log("daata berubah")
       }})
       
       
@@ -188,11 +186,11 @@ export const Home = () => {
                 <div className='tab-content' id="custom-tabs-four-tabContent">
                   <div className="tab-pane fade show active" id="custom-tabs-four-total" role="tabpanel" aria-labelledby="custom-tabs-four-total-tab">
                     <Charts isFetching={isFetching} />
-                    {/* <Charts2 />
-                    <Charts3 />
-                    <Charts4 />
-                    <Charts5 />
-                    <Charts6 /> */}
+                    <Charts2 isFetching={isFetching} />
+                    <Charts3 isFetching={isFetching} />
+                    <Charts4 isFetching={isFetching} />
+                    <Charts5 isFetching={isFetching} />
+                    <Charts6 isFetching={isFetching} />
                   </div>
 
                   <div className="tab-pane fade" id="custom-tabs-four-internal" role="tabpanel" aria-labelledby="custom-tabs-four-internal-tab">
