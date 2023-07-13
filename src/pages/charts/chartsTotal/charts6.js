@@ -80,12 +80,12 @@ const Charts6= ({isFetching}) => {
             <i className='nama'>*Sales Maret (Internal & Partner) menggunakan perkiraan omset sampai akhir bulan, Distributor & Offline data real</i>
         </div>
 
-        <div className='container form-group '>
-            <div className=''>
+        <div className='container form-group row'>
+            <div className='col-md-12'>
               {isLoading && <Loading />}
               <Bar options={options} data={data} />
             </div>
-            <div className=' text-xs'>
+            <div className='text-xs col-md-12 table-responsive'>
                 <table className="table table-bordered table-sm">
                 <thead className='bg-success'>
                     <tr>
@@ -140,7 +140,6 @@ const Charts6= ({isFetching}) => {
                 }
                 </table>
             </div>
-
         </div>
       </div>
     </div>

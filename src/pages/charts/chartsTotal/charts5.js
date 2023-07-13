@@ -57,7 +57,7 @@ const Charts5 = ({isFetching}) => {
         { value: 'vanilla', label: 'Vanilla' }
       ]
   return (
-    <div className="card" style={{width: '30rem'}}>
+    <div className="card">
       <div className='card-body d-flex flex-column align-items-center'>
         <div className='container form-group text-center'>
             <h3>Persentase Kontribusi Sales Per SKU Berdasarkan Quantity</h3>
@@ -82,9 +82,10 @@ const Charts5 = ({isFetching}) => {
                     classNamePrefix="select" 
                 />
             </div>
+            {isLoading && <Loading />}
+            <Pie options={options} data={data} />
         </div>
-        {isLoading && <Loading />}
-        <Pie options={options} data={data} />
+        
       </div>
     </div>
   )
