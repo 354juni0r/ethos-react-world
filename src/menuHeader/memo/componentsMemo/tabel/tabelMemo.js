@@ -43,7 +43,7 @@ export default function TabelMemo(props) {
               </tr>
             )}
             {DataMemoList.map((DataMemo, idx) => (
-              <tr key={idx}>
+              <tr key={idx} onClick={props.onClickRow}>
                 <td>
                   <div className="icheck-primary">
                     <input type="checkbox" defaultValue id="check1" />
@@ -64,7 +64,7 @@ export default function TabelMemo(props) {
                     {DataMemo.status === "1" ? (
                       <button
                         className="btn btn-success btn-block mb-3"
-                        onClick={() => props.onClickDisetujui(DataMemo.id)}
+                        onClick={props.onClickDisetujui}
                       >
                         Disetujui
                       </button>

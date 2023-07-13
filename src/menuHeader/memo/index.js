@@ -22,6 +22,7 @@ const Index = () => {
     showMemoRevisiBerbintang: false,
     showMemoDraft: false,
     showMemoDraftBerbintang: false,
+    showBacaMemoTerkirim: false,
   });
 
   const toggleState = (stateKey) => {
@@ -40,6 +41,7 @@ const Index = () => {
       showMemoRevisiBerbintang: false,
       showMemoDraft: false,
       showMemoDraftBerbintang: false,
+      showBacaMemoTerkirim: false,
       [stateKey]: true,
     }));
   };
@@ -49,8 +51,8 @@ const Index = () => {
   const toggleTerkirim = () => toggleState("showTerkirim");
   const toggleArsip = () => toggleState("showArsip");
   const toggleSampah = () => toggleState("showSampah");
-  const toggleOpenMemoDisetujui = (id) => toggleState("showMemoDisetujui");
-  const toggleOpenMemoDisetujuiBerbintang = (id) =>
+  const toggleOpenMemoDisetujui = () => toggleState("showMemoDisetujui");
+  const toggleOpenMemoDisetujuiBerbintang = () =>
     toggleState("showMemoDisetujuiBerbintang");
   const toggleOpenMemoPending = () => toggleState("showMemoPending");
   const toggleOpenMemoPendingBerbintang = () =>
@@ -61,6 +63,7 @@ const Index = () => {
   const toggleOpenMemoDraft = () => toggleState("showMemoDraft");
   const toggleOpenMemoDraftBerbintang = () =>
     toggleState("showMemoDraftBerbintang");
+  const toggleshowBacaMemoTerkirim = () => toggleState("showBacaMemoTerkirim");
 
   return (
     <>
@@ -103,27 +106,41 @@ const Index = () => {
                   onClickMemoDraft={toggleOpenMemoDraftBerbintang}
                 />
               )}
-              {showState.showTerkirim && <MemoTerkirim />}
+              {showState.showTerkirim && (
+                <MemoTerkirim onClickRow={toggleshowBacaMemoTerkirim} />
+              )}
               {showState.showArsip && <MemoArsip />}
               {showState.showSampah && <MemoSampah />}
               {showState.showMemoDisetujui && (
-                <MemoIsi onClick={togglePengajuan} textMemo={"disetujui"} />
+                <MemoIsi
+                  onClick={togglePengajuan}
+                  textMemo={"disetujui"}
+                  button1={"print"}
+                  button2={"kirim"}
+                />
               )}
               {showState.showMemoDisetujuiBerbintang && (
                 <MemoIsi
                   onClick={togglePengajuan}
                   textMemo={"disetujui"}
                   name={"berbintang"}
+                  button1={"print"}
+                  button2={"kirim"}
                 />
               )}
               {showState.showMemoPending && (
-                <MemoIsi onClick={togglePengajuan} textMemo={"pending"} />
+                <MemoIsi
+                  onClick={togglePengajuan}
+                  textMemo={"pending"}
+                  button1={"print"}
+                />
               )}
               {showState.showMemoPendingBerbintang && (
                 <MemoIsi
                   onClick={togglePengajuan}
                   textMemo={"pending"}
                   name={"berbintang"}
+                  button1={"print"}
                 />
               )}
               {showState.showMemoRevisi && (
@@ -137,6 +154,14 @@ const Index = () => {
               )}
               {showState.showMemoDraftBerbintang && (
                 <DrafMemo onClick={togglePengajuan} name={"berbintang"} />
+              )}
+              {showState.showBacaMemoTerkirim && (
+                <MemoIsi
+                  onClick={togglePengajuan}
+                  textMemo={"terkirim"}
+                  name={"berbintang"}
+                  button1={"print"}
+                />
               )}
             </div>
           </div>

@@ -4,7 +4,7 @@ export default function TabelIsiMemo(props) {
   return (
     <>
       <div className="table-responsive mailbox-messages">
-        <table className="table table-bordered" id={props.id}>
+        <table className="table table-bordered" name={props.name}>
           <tbody>
             <tr>
               <td className="text-lg text-bold">komunikasi</td>
@@ -22,7 +22,7 @@ export default function TabelIsiMemo(props) {
                 <div>
                   <i
                     className={`fas fa-star text-xs ${
-                      props.id == "berbintang" ? "text-warning" : ""
+                      props.name == "berbintang" ? "text-warning" : ""
                     }`}
                     style={{ color: "#D4D4D4" }}
                   />
@@ -31,7 +31,7 @@ export default function TabelIsiMemo(props) {
                       props.text == "disetujui" && "text-white "
                     }`}
                     style={
-                      props.text == "disetujui"
+                      props.text == "disetujui" || props.text == "terkirim"
                         ? { backgroundColor: "#87BD3D" }
                         : props.text == "pending"
                         ? { backgroundColor: "#D9E021" }

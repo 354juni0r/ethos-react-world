@@ -2,7 +2,7 @@ import React from "react";
 import BoxControl from "./boxControl";
 import TabelMemo from "./tabel/tabelMemo";
 
-export default function MemoTerkirim() {
+export default function MemoTerkirim(props) {
   return (
     <>
       <div className="card">
@@ -28,7 +28,7 @@ export default function MemoTerkirim() {
         </div>
         <div className="card-body p-0">
           <BoxControl />
-          <TabelMemo id={"terkirim"} />
+          <TabelMemo id={"terkirim"} onClickRow={props.onClickRow} />
         </div>
         <div className="card-footer p-0">
           <BoxControl />

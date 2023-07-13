@@ -21,7 +21,7 @@ export default function MemoIsi(props) {
         }
         body={
           <>
-            <TabelIsiMemo id={props.name} text={props.textMemo} />
+            <TabelIsiMemo name={props.name} text={props.textMemo} />
             <div className="text-xs mt-2">
               <div className="row">
                 <div className="col">
@@ -60,11 +60,17 @@ export default function MemoIsi(props) {
         footer={
           <>
             <div className="float-right">
-              <button type="button" className="btn btn-default mr-2">
-                <i className="fas fa-print" /> Print
+              <button type="button" className="btn btn-primary">
+                <i className="fas fa-print" /> {props.button1}
               </button>
-              <button type="submit" className="btn btn-success">
-                <i className="fa fa-paper-plane" /> Kirim
+              <button
+                type="submit"
+                className={`btn btn-success ml-2 ${
+                  props.textMemo == "pending" ? "d-none" : ""
+                }`}
+              >
+                <i className="fa fa-paper-plane" />
+                {props.button2}
               </button>
             </div>
           </>
