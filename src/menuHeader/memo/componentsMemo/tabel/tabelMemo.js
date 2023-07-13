@@ -63,6 +63,7 @@ export default function TabelMemo(props) {
                   <td className="mailbox-star">
                     {DataMemo.status === "1" ? (
                       <button
+                        id={DataMemoList.id}
                         className="btn btn-success btn-block mb-3"
                         onClick={props.onClickDisetujui}
                       >

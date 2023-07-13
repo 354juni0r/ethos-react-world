@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import menuData from "../menuHeader/data/menuData";
 import { countPesan } from "../api/axios";
 import { useState } from "react";
@@ -7,10 +7,10 @@ import { useEffect } from "react";
 function Header() {
   const [dataCount, setDataCount] = useState(0);
   useEffect(() => {
-      countPesan().then((res) => {
-        setDataCount(res);
-      });
-    
+    console.log("first1111");
+    countPesan().then((res) => {
+      setDataCount(res);
+    });
   }, []);
   return (
     <>

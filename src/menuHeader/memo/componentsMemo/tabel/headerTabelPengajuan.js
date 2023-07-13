@@ -4,6 +4,11 @@ export default function HeaderTabelPengajuan() {
   return (
     <>
       <ul className="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+        <div className="nama px-3 mt-2">
+          {" "}
+          <i className="fas fa-inbox" />
+          Pengajuan
+        </div>
         <li className="nav-item">
           <a
             className="nav-link active"
@@ -13,21 +18,6 @@ export default function HeaderTabelPengajuan() {
             role="tab"
             aria-controls="custom-tabs-one-pengajuan"
             aria-selected="true"
-          >
-            {" "}
-            <i className="fas fa-inbox" />
-            Pengajuan
-          </a>
-        </li>
-        <li className="nav-item">
-          <a
-            className="nav-link"
-            id="custom-tabs-one-semua-tab"
-            data-toggle="pill"
-            href="#custom-tabs-one-semua"
-            role="tab"
-            aria-controls="custom-tabs-one-semua"
-            aria-selected="false"
           >
             Semua
           </a>

@@ -29,21 +29,6 @@ export default function MemoPengajuan(props) {
             </div>
             <div
               className="tab-pane fade"
-              id="custom-tabs-one-semua"
-              role="tabpanel"
-              aria-labelledby="custom-tabs-one-semua-tab"
-            >
-              <BoxControl />
-              <TabelMemo
-                name={"pengajuan"}
-                onClickDisetujui={props.onClickMemoDisetujui}
-                onClickPending={props.onClickMemoPending}
-                onClickRevisi={props.onClickMemoRevisi}
-                onClickDraft={props.onClickMemoDraft}
-              />
-            </div>
-            <div
-              className="tab-pane fade"
               id="custom-tabs-one-draft"
               role="tabpanel"
               aria-labelledby="custom-tabs-one-draft-tab"
