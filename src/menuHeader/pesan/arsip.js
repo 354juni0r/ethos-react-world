@@ -218,7 +218,7 @@ const Arsip = () => {
                                   </a>
                                 </td>
                                 <td className="mailbox-name">
-                                  <a href="read-mail.html">{DataMemo.nama}</a>
+                                  <a href="#">{DataMemo.nama}</a>
                                 </td>
                                 <td className="mailbox-subject">
                                   <b>{DataMemo.nama}</b> - {DataMemo.isipesan}
@@ -320,7 +320,7 @@ const Arsip = () => {
                                   </a>
                                 </td>
                                 <td className="mailbox-name">
-                                  <a href="read-mail.html">{DataMemo.nama}</a>
+                                  <a href="#">{DataMemo.nama}</a>
                                 </td>
                                 <td className="mailbox-subject">
                                   <b>{DataMemo.nama}</b> - {DataMemo.isipesan}

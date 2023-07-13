@@ -281,7 +281,7 @@ const Index = () => {
                                 </td>
                                 <td className="mailbox-name">
                                   <a
-                                    href="read-mail.html"
+                                    href="#"
                                     className={`${
                                       DataMemo.baca !== "true" ? "nama" : ""
                                     }`}
@@ -396,7 +396,7 @@ const Index = () => {
                                   </a>
                                 </td>
                                 <td className="mailbox-name">
-                                  <a href="read-mail.html">{DataMemo.nama}</a>
+                                  <a href="#">{DataMemo.nama}</a>
                                 </td>
                                 <td className="mailbox-subject">
                                   <b>{DataMemo.nama}</b> - {DataMemo.isipesan}
