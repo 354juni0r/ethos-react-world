@@ -22,7 +22,7 @@ const tambahmemo = () => {
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-md-3">
-                                <a href="mailbox.html" className="btn btn-primary btn-block mb-3">Back to Inbox</a>
+                                <a href="#" className="btn btn-primary btn-block mb-3">Back to Inbox</a>
                                 <div className="card">
 
                                     <div className="card-body p-0">

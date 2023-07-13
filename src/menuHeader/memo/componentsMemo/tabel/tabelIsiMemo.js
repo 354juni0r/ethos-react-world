@@ -21,11 +21,21 @@ export default function TabelIsiMemo(props) {
                 <div className="text-xs ml-3">8 mei 2023</div>
                 <div>
                   <i
-                    className={`fas fa-star text-xs ${
+                    className={`fas fa-star text-sm ${
                       props.name == "berbintang" ? "text-warning" : ""
                     }`}
                     style={{ color: "#D4D4D4" }}
                   />
+                  {props.name == "terkirim" && (
+                    <>
+                      <button className="btn btn-primary btn-xs text-center">
+                        <i className="far fa-file-alt text-sm text-light" />
+                      </button>
+                      <button className="btn btn-primary btn-xs text-center">
+                        <i className="fa fa-trash-alt text-sm text-light" />
+                      </button>
+                    </>
+                  )}
                   <span
                     className={`badge text-xs ${
                       props.text == "disetujui" || props.text == "terkirim"

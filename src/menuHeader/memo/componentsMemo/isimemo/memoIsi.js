@@ -2,6 +2,7 @@ import React from "react";
 import TabelIsiMemo from "../tabel/tabelIsiMemo";
 import Select from "react-select";
 import CardMemo from "./cardMemo";
+import ImageIsiMemo from "./imageIsiMemo";
 
 export default function MemoIsi(props) {
   const options = [
@@ -55,6 +56,7 @@ export default function MemoIsi(props) {
                 <input className="form-control" placeholder="Subjek:" />
               </div>
             </form>
+            <ImageIsiMemo />
           </>
         }
         footer={

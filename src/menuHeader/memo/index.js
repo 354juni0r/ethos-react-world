@@ -160,6 +160,7 @@ const Index = () => {
                   onClick={togglePengajuan}
                   textMemo={"terkirim"}
                   button1={"print"}
+                  name={"terkirim"}
                 />
               )}
             </div>

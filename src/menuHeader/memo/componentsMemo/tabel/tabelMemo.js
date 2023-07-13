@@ -100,7 +100,7 @@ export default function TabelMemo(props) {
                     props.name == "terkirim" ? "w-25" : ""
                   }`}
                 >
-                  <a href="read-mail.html" className="nama">
+                  <a href="#" className="nama">
                     {props.name == "terkirim" ? "Kepada : " : ""}
                     {DataMemo.nama}
                   </a>
