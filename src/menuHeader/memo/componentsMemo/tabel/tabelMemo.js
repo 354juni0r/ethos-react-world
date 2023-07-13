@@ -17,9 +17,9 @@ export default function TabelMemo(props) {
   return (
     <>
       <div className="table-responsive mailbox-messages">
-        <table className="table table-hover table-striped" id={props.id}>
+        <table className="table table-hover table-striped" name={props.name}>
           <tbody>
-            {props.id == "sampah" && (
+            {props.name == "sampah" && (
               <tr key="">
                 <td
                   colSpan={4}
@@ -54,12 +54,12 @@ export default function TabelMemo(props) {
                   <a href="#">
                     <i
                       className={`fas fa-star ${
-                        props.id == "berbintang" ? "text-warning" : ""
+                        props.name == "berbintang" ? "text-warning" : ""
                       }`}
                     />
                   </a>
                 </td>
-                {props.id == "berbintang" || props.id == "pengajuan" ? (
+                {props.name == "berbintang" || props.name == "pengajuan" ? (
                   <td className="mailbox-star">
                     {DataMemo.status === "1" ? (
                       <button
@@ -96,11 +96,11 @@ export default function TabelMemo(props) {
                 )}
                 <td
                   className={`mailbox-name ${
-                    props.id == "terkirim" ? "w-25" : ""
+                    props.name == "terkirim" ? "w-25" : ""
                   }`}
                 >
                   <a href="read-mail.html" className="nama">
-                    {props.id == "terkirim" ? "Kepada : " : ""}
+                    {props.name == "terkirim" ? "Kepada : " : ""}
                     {DataMemo.nama}
                   </a>
                 </td>

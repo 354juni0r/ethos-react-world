@@ -159,7 +159,6 @@ const Index = () => {
                 <MemoIsi
                   onClick={togglePengajuan}
                   textMemo={"terkirim"}
-                  name={"berbintang"}
                   button1={"print"}
                 />
               )}

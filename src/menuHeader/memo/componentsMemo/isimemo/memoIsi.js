@@ -66,7 +66,9 @@ export default function MemoIsi(props) {
               <button
                 type="submit"
                 className={`btn btn-success ml-2 ${
-                  props.textMemo == "pending" ? "d-none" : ""
+                  props.textMemo == "pending" || props.textMemo == "terkirim"
+                    ? "d-none"
+                    : ""
                 }`}
               >
                 <i className="fa fa-paper-plane" />

@@ -20,7 +20,7 @@ export default function MemoPengajuan(props) {
             >
               <BoxControl />
               <TabelMemo
-                id={"pengajuan"}
+                name={"pengajuan"}
                 onClickDisetujui={props.onClickMemoDisetujui}
                 onClickPending={props.onClickMemoPending}
                 onClickRevisi={props.onClickMemoRevisi}
@@ -34,7 +34,13 @@ export default function MemoPengajuan(props) {
               aria-labelledby="custom-tabs-one-semua-tab"
             >
               <BoxControl />
-              <TabelMemo id={"pengajuan"} />
+              <TabelMemo
+                name={"pengajuan"}
+                onClickDisetujui={props.onClickMemoDisetujui}
+                onClickPending={props.onClickMemoPending}
+                onClickRevisi={props.onClickMemoRevisi}
+                onClickDraft={props.onClickMemoDraft}
+              />
             </div>
             <div
               className="tab-pane fade"
@@ -43,7 +49,14 @@ export default function MemoPengajuan(props) {
               aria-labelledby="custom-tabs-one-draft-tab"
             >
               <BoxControl />
-              <TabelMemo id={"pengajuan"} status={"4"} />
+              <TabelMemo
+                name={"pengajuan"}
+                status={"4"}
+                onClickDisetujui={props.onClickMemoDisetujui}
+                onClickPending={props.onClickMemoPending}
+                onClickRevisi={props.onClickMemoRevisi}
+                onClickDraft={props.onClickMemoDraft}
+              />
             </div>
             <div
               className="tab-pane fade"
@@ -52,7 +65,14 @@ export default function MemoPengajuan(props) {
               aria-labelledby="custom-tabs-one-pending-tab"
             >
               <BoxControl />
-              <TabelMemo id={"pengajuan"} status={"3"} />
+              <TabelMemo
+                name={"pengajuan"}
+                status={"3"}
+                onClickDisetujui={props.onClickMemoDisetujui}
+                onClickPending={props.onClickMemoPending}
+                onClickRevisi={props.onClickMemoRevisi}
+                onClickDraft={props.onClickMemoDraft}
+              />
             </div>
             <div
               className="tab-pane fade"
@@ -61,7 +81,14 @@ export default function MemoPengajuan(props) {
               aria-labelledby="custom-tabs-one-revisi-tab"
             >
               <BoxControl />
-              <TabelMemo id={"pengajuan"} status={"2"} />
+              <TabelMemo
+                name={"pengajuan"}
+                status={"2"}
+                onClickDisetujui={props.onClickMemoDisetujui}
+                onClickPending={props.onClickMemoPending}
+                onClickRevisi={props.onClickMemoRevisi}
+                onClickDraft={props.onClickMemoDraft}
+              />
             </div>
             <div
               className="tab-pane fade"
@@ -70,7 +97,14 @@ export default function MemoPengajuan(props) {
               aria-labelledby="custom-tabs-one-disetujui-tab"
             >
               <BoxControl />
-              <TabelMemo id={"pengajuan"} status={"1"} />
+              <TabelMemo
+                name={"pengajuan"}
+                status={"1"}
+                onClickDisetujui={props.onClickMemoDisetujui}
+                onClickPending={props.onClickMemoPending}
+                onClickRevisi={props.onClickMemoRevisi}
+                onClickDraft={props.onClickMemoDraft}
+              />
             </div>
           </div>
         </div>

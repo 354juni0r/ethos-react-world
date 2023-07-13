@@ -28,7 +28,9 @@ export default function TabelIsiMemo(props) {
                   />
                   <span
                     className={`badge text-xs ${
-                      props.text == "disetujui" && "text-white "
+                      props.text == "disetujui" || props.text == "terkirim"
+                        ? "text-white "
+                        : ""
                     }`}
                     style={
                       props.text == "disetujui" || props.text == "terkirim"

@@ -26,7 +26,7 @@ export default function MemoArsip() {
         </div>
         <div className="card-body p-0">
           <BoxControl />
-          <TabelMemo id={"arsip"} />
+          <TabelMemo name={"arsip"} />
         </div>
         <div className="card-footer p-0">
           <BoxControl />

@@ -29,7 +29,7 @@ export default function MemoBerbintang(props) {
         <div className="card-body p-0">
           <BoxControl />
           <TabelMemo
-            id={"berbintang"}
+            name={"berbintang"}
             onClickDisetujui={props.onClickMemoDisetujui}
             onClickPending={props.onClickMemoPending}
             onClickRevisi={props.onClickMemoRevisi}

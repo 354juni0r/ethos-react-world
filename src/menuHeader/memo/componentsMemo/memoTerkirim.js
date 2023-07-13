@@ -28,7 +28,7 @@ export default function MemoTerkirim(props) {
         </div>
         <div className="card-body p-0">
           <BoxControl />
-          <TabelMemo id={"terkirim"} onClickRow={props.onClickRow} />
+          <TabelMemo name={"terkirim"} onClickRow={props.onClickRow} />
         </div>
         <div className="card-footer p-0">
           <BoxControl />

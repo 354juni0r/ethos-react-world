@@ -26,7 +26,7 @@ export default function MemoSampah() {
         </div>
         <div className="card-body p-0">
           <BoxControl />
-          <TabelMemo id={"sampah"} />
+          <TabelMemo name={"sampah"} />
         </div>
         <div className="card-footer p-0">
           <BoxControl />
