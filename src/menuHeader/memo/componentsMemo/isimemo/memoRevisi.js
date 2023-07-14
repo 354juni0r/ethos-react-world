@@ -19,13 +19,18 @@ export default function MemoRevisi(props) {
         name={props.name}
         title={
           <>
-            <i className="fas fa-arrow-left mr-2 nama" onClick={props.onClick} />
+            <i
+              className="fas fa-arrow-left mr-2 nama"
+              onClick={props.onClick}
+            />
             <i className="far fa-comments nama" /> Revisi Memo
           </>
         }
         tools={
           <>
-            {props.name == "berbintang" && <i className="fas fa-star text-warning" />}
+            {props.name == "berbintang" && (
+              <i className="fas fa-star text-warning" />
+            )}
             <span className="badge bg-danger">revisi</span>
           </>
         }
@@ -139,12 +144,19 @@ export default function MemoRevisi(props) {
             </div>
             <div>
               <div className="form-group">
-                <label className="nama">Lampiran</label>
+                <label htmlFor="lampiranRevisi" className="nama">
+                  Revisi
+                </label>
               </div>
               <div className="form-group">
                 <div className="btn btn-primary btn-file">
                   <i className="fas fa-paperclip"></i> lampirkan File
-                  <input className="" type="file" name="lampirkan" />
+                  <input
+                    className=""
+                    type="file"
+                    name="lampirkan"
+                    id="lampiranRevisi"
+                  />
                 </div>
                 <p className="help-block">Max. 32MB</p>
               </div>

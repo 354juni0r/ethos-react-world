@@ -46,8 +46,8 @@ export default function TabelMemo(props) {
               <tr key={idx} onClick={props.onClickRow}>
                 <td>
                   <div className="icheck-primary">
-                    <input type="checkbox" defaultValue id="check1" />
-                    <label htmlFor="check1" />
+                    <input type="checkbox" defaultValue id={props.name} />
+                    <label htmlFor={props.name} />
                   </div>
                 </td>
                 <td className="mailbox-star">

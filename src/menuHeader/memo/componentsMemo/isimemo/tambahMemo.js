@@ -108,14 +108,9 @@ export default function TambahMemo(props) {
               <div className="card-header">
                 <h3 className="card-title nama">Isi Memo</h3>
               </div>
-              {/* <label className="nama">Isi Memo</label> */}
               <div className="card-body">
                 <div className="form-group">
-                  <textarea
-                    id="compose-textarea"
-                    className="form-control"
-                    style={{ height: 300 }}
-                  />
+                  <textarea className="form-control" style={{ height: 300 }} />
                 </div>
               </div>
             </div>

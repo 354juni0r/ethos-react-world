@@ -7,7 +7,6 @@ import { useEffect } from "react";
 function Header() {
   const [dataCount, setDataCount] = useState(0);
   useEffect(() => {
-    console.log("first1111");
     countPesan().then((res) => {
       setDataCount(res);
     });
