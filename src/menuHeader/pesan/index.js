@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { getDataMemo, getDataPesan } from "../../api/axios";
+import { getDataPesan } from "../../api/apiPesan";
 import CheckBox from "./componentsPesan/checkbox";
 import { deletePesan } from "../../api/axios";
 const Index = () => {

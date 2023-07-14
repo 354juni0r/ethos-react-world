@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import Select from "react-select";
-import { addPesan, getUsers } from "../../api/axios";
+import { addPesan } from "../../api/axios";
+import { getUsers } from "../../api/apiPesan";
 import { useState } from "react";
 const BuatPesan = () => {
   const navigate = useNavigate();
