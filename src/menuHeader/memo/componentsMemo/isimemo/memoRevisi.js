@@ -19,8 +19,8 @@ export default function MemoRevisi(props) {
         name={props.name}
         title={
           <>
-            <i className="fas fa-arrow-left mr-2" onClick={props.onClick} />
-            <i className="far fa-comments" /> Revisi Memo
+            <i className="fas fa-arrow-left mr-2 nama" onClick={props.onClick} />
+            <i className="far fa-comments nama" /> Revisi Memo
           </>
         }
         tools={

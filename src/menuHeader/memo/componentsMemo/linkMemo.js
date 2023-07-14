@@ -4,7 +4,11 @@ import { NavLink, Link } from "react-router-dom";
 export default function LinkMemo(props) {
   return (
     <>
-      <Link to="./tambahmemo" className="btn btn-primary btn-block mb-3">
+      <Link
+        to="#"
+        onClick={props.onClickBuatMemo}
+        className="btn btn-primary btn-block mb-3"
+      >
         Buat Memo
       </Link>
       <div className="card">

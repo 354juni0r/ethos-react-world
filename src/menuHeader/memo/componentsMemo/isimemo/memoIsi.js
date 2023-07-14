@@ -16,8 +16,12 @@ export default function MemoIsi(props) {
         name={props.name}
         title={
           <>
-            <i className="fas fa-arrow-left mr-2" onClick={props.onClick} />
-            <i className="far fa-comments" /> Baca Memo
+            <i
+              className="fas fa-arrow-left mr-2 nama"
+              onClick={props.onClick}
+            />
+            <i className="far fa-comments nama" />{" "}
+            <span className="nama">Baca Memo</span>
           </>
         }
         body={

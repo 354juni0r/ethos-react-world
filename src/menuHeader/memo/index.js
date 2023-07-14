@@ -9,9 +9,11 @@ import MemoSampah from "./componentsMemo/memoSampah";
 import MemoIsi from "./componentsMemo/isimemo/memoIsi";
 import MemoRevisi from "./componentsMemo/isimemo/memoRevisi";
 import DrafMemo from "./componentsMemo/isimemo/drafMemo";
+import TambahMemo from "./componentsMemo/isimemo/tambahMemo";
 const Index = () => {
   const [showState, setShowState] = useState({
     showPengajuan: true,
+    showBuatMemo: false,
     showBerbintang: false,
     showTerkirim: false,
     showArsip: false,
@@ -29,6 +31,7 @@ const Index = () => {
     setShowState((nameState) => ({
       ...nameState,
       showPengajuan: false,
+      showBuatMemo: false,
       showBerbintang: false,
       showTerkirim: false,
       showArsip: false,
@@ -47,6 +50,7 @@ const Index = () => {
   };
 
   const togglePengajuan = () => toggleState("showPengajuan");
+  const toggleBuatMemo = () => toggleState("showBuatMemo");
   const toggleBerbintang = () => toggleState("showBerbintang");
   const toggleTerkirim = () => toggleState("showTerkirim");
   const toggleArsip = () => toggleState("showArsip");
@@ -82,6 +86,7 @@ const Index = () => {
             <div className="col-md-3">
               <LinkMemo
                 onClickPengajuan={togglePengajuan}
+                onClickBuatMemo={toggleBuatMemo}
                 onClickBerbintang={toggleBerbintang}
                 onClickTerkirim={toggleTerkirim}
                 onClickArsip={toggleArsip}
@@ -163,6 +168,7 @@ const Index = () => {
                   name={"terkirim"}
                 />
               )}
+              {showState.showBuatMemo && <TambahMemo onClick={togglePengajuan}/>}
             </div>
           </div>
         </section>
