@@ -1,16 +1,15 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../../api/getCharts'
 import Select from 'react-select'
 import { Pie } from 'react-chartjs-2';
 import Loading from '../loading';
 
 const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'right',
-      },
+  maintainAspectRatio : false,
+  plugins: {
+    legend: {
+      position: 'right',
     },
+  },
   };
 
 const Charts5 = ({isFetching}) => {
@@ -82,10 +81,11 @@ const Charts5 = ({isFetching}) => {
                     classNamePrefix="select" 
                 />
             </div>
-            {isLoading && <Loading />}
-            <Pie options={options} data={data} />
         </div>
-        
+        <div className='chart-container container form-group'>
+          {isLoading && <Loading />}
+          <Pie options={options} data={data} />
+        </div>
       </div>
     </div>
   )

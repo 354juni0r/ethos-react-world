@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../../api/getCharts'
 import { Bar } from 'react-chartjs-2';
 import Loading from '../loading';
 
 const options = {
-    responsive: true,
+    maintainAspectRatio : false,
     staccked: true,
     plugins: {
       legend: {
@@ -81,7 +80,7 @@ const Charts6= ({isFetching}) => {
         </div>
 
         <div className='container form-group row'>
-            <div className='col-md-12'>
+            <div className='col-md-12 chart-container'>
               {isLoading && <Loading />}
               <Bar options={options} data={data} />
             </div>

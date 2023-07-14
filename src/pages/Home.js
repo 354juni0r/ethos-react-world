@@ -44,6 +44,8 @@ import ChartsPartner5 from './charts/chartsPartner/charts5';
 import ChartsPartner6 from './charts/chartsPartner/charts6';
 import ChartsPartner7 from './charts/chartsPartner/charts7';
 import getCharts from '../api/getCharts';
+import { socket } from '../App';
+import TabsHeader from './charts/tabsHeader';
 
 
 ChartJS.register(
@@ -136,55 +138,12 @@ export const Home = () => {
                   </div>
                   </div>
                 </div>
-                <div className='form-group'>
-                  <div className='row'>
-                    <div className='col-md-3'>
-                      <div className="card card-success">
-                        <div className="card-header">
-                          <p className="card-title">Omset Sampai Last Update</p>
-                        </div>
-                        <div className="card-body">
-                          The body of the card
-                        </div>
-                      </div>
-                    </div>
-                    <div className='col-md-3'>
-                      <div className="card card-success">
-                        <div className="card-header">
-                          <p className="card-title">Perkiraan Omset Akhir Bulan</p>
-                        </div>
-                        <div className="card-body">
-                          The body of the card
-                        </div>
-                      </div>
-                    </div>
-                    <div className='col-md-3'>
-                      <div className="card card-success">
-                        <div className="card-header">
-                          <p className="card-title">Selisih Kumulatif Target & Omset</p>
-                        </div>
-                        <div className="card-body">
-                          The body of the card
-                        </div>
-                      </div>
-                    </div>
-                    <div className='col-md-3'>            
-                      <div className="card card-success">
-                        <div className="card-header">
-                          <p className="card-title">Kekurangan Target</p>
-                        </div>
-                        <div className="card-body">
-                          The body of the card
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div className='card-body'>
                 <div className='tab-content' id="custom-tabs-four-tabContent">
                   <div className="tab-pane fade show active" id="custom-tabs-four-total" role="tabpanel" aria-labelledby="custom-tabs-four-total-tab">
+                    <TabsHeader />
                     <Charts isFetching={isFetching} />
                     <Charts2 isFetching={isFetching} />
                     <Charts3 isFetching={isFetching} />
@@ -194,6 +153,7 @@ export const Home = () => {
                   </div>
 
                   <div className="tab-pane fade" id="custom-tabs-four-internal" role="tabpanel" aria-labelledby="custom-tabs-four-internal-tab">
+                    <TabsHeader />
                     {/* <ChartsInternal />
                     <ChartsInternal2 />
                     <ChartsInternal3 />
@@ -214,6 +174,7 @@ export const Home = () => {
                   </div>
 
                   <div className="tab-pane fade" id="custom-tabs-four-partner" role="tabpanel" aria-labelledby="custom-tabs-four-partner-tab">
+                    <TabsHeader />
                     {/* <ChartsPartner />
                     <ChartsPartner2 />
                     <ChartsPartner3 />

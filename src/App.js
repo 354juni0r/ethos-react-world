@@ -26,6 +26,8 @@ import BerbagiIde from '../src/menuHeader/ide/berbagiIde';
 import BerbintangIde from '../src/menuHeader/ide/berbintang';
 import BuatIde from '../src/menuHeader/ide/buatIde';
 import SampahIde from '../src/menuHeader/ide/sampah';
+import socketIO from 'socket.io-client';
+export const socket = socketIO.connect('http://192.168.18.64:4000');
 
 function App() {
   return (

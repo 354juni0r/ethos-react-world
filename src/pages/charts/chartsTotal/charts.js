@@ -3,7 +3,7 @@ import { Bar } from 'react-chartjs-2';
 import Loading from '../loading';
 
 const options = {
-    responsive: true,
+    maintainAspectRatio : false,
     plugins: {
       legend: {
         position: 'bottom',
@@ -72,9 +72,9 @@ const Charts = ({isFetching}) => {
           <i className='nama'>*Sales April menggunakan proyeksi total sales akhir bulan</i>
         </div>
         
-        <div className='container form-group row'>
+        <div className='container form-group chart-container'>
           {isLoading && <Loading />}
-          <Bar options={options} data={data} />
+          <Bar options={options} data={data}/>
         </div>
       </div>
     </div>

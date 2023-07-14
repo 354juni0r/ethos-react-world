@@ -4,7 +4,7 @@ import Loading from '../loading';
 
 
 const options = {
-    responsive: true,
+    maintainAspectRatio : false,
     staccked: true,
     plugins: {
       legend: {
@@ -74,7 +74,7 @@ const options = {
           <i className='nama'>*Sales April menggunakan proyeksi total sales akhir bulan</i>
         </div>
 
-        <div className='container form-group row'>
+        <div className='container form-group chart-container'>
           {isLoading && <Loading />}
           <Bar options={options} data={data} />
         </div>

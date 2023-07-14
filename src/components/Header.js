@@ -4,6 +4,7 @@ import menuData from "../menuHeader/data/menuData";
 import { countPesan } from "../api/axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { socket } from "../App";
 function Header() {
   const [dataCount, setDataCount] = useState(0);
   useEffect(() => {
@@ -12,6 +13,13 @@ function Header() {
       });
     
   }, []);
+
+  // const [datSocket, setSocket] = useState(null);
+  // useEffect(()=> {
+  //   socket.on("notif", (arg) => {
+  //     setSocket(arg)
+  //   });
+  // },[])
   return (
     <>
       {/* Navbar */}
@@ -35,6 +43,9 @@ function Header() {
             <li key={idx} className="nav-item d-none d-sm-inline-block">
               <Link to={menuItem.to} className="nav-link">
                 {menuItem.title}
+                <span className="badge badge-danger navbar-badge">
+                {/* {datSocket} */}
+              </span>
               </Link>
             </li>
           ))}

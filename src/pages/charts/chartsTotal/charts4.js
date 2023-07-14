@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../../api/getCharts'
 import Select from 'react-select'
 import { Bar } from 'react-chartjs-2';
 import Loading from '../loading';
 
 const options = {
-    responsive: true,
+    maintainAspectRatio : false,
     staccked: true,
     plugins: {
       legend: {
@@ -174,11 +173,11 @@ const Charts4 = ({isFetching}) => {
         </div>
 
         <div className='container form-group row'>
-            <div className='col-md-10 d-flex align-items-end'>
+            <div className='col-md-10 d-flex align-items-end chart-container'>
               {isLoading && <Loading />}
               <Bar options={options} data={data} />
             </div>
-            <div className='col-md-2 text-xs'>
+            <div className='col-md-2 text-xs table-responsive'>
                 <div className='col nama'>
                   <h6>Sales Bulan April</h6>
                   <p>Update: 29/04/2023</p>

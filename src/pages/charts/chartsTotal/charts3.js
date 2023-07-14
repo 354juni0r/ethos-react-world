@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import getCharts from '../../../api/getCharts'
 import Select from 'react-select'
 import { Bar } from 'react-chartjs-2';
 import Loading from '../loading';
 
  const options = {
-    responsive: true,
+    maintainAspectRatio : false,
     staccked: true,
     plugins: {
       legend: {
@@ -134,7 +133,7 @@ const Charts3 = ({isFetching}) => {
             </div>
         </div>
 
-        <div className='container row form-group'>
+        <div className='container chart-container form-group'>
           {isLoading && <Loading />}
           <Bar options={options} data={data} />
         </div>
