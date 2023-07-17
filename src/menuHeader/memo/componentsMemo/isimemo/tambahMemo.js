@@ -1,16 +1,16 @@
 import React from "react";
 import CardMemo from "./cardMemo";
+import { Link } from "react-router-dom";
 
-export default function TambahMemo(props) {
+export default function TambahMemo() {
   return (
     <>
       <CardMemo
         title={
           <>
-            <i
-              className="fas fa-arrow-left mr-2 nama"
-              onClick={props.onClick}
-            />
+            <Link to="/memo/pengajuan">
+              <i className="fas fa-arrow-left mr-2 nama" />
+            </Link>
             <i className="fas fa-envelope-open nama"> Memo Baru</i>
           </>
         }

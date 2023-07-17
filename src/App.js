@@ -2,7 +2,6 @@ import Header from "./components/header";
 
 import memo from "../src/menuHeader/memo/index";
 import pesan from "../src/menuHeader/pesan/index";
-import addmemo from "./menuHeader/memo/tambahmemo";
 import ide from "../src/menuHeader/ide/index";
 import project from "../src/menuHeader/project/index";
 import agenda from "../src/menuHeader/agenda/index";
@@ -26,6 +25,12 @@ import BerbintangIde from "../src/menuHeader/ide/berbintang";
 import BuatIde from "../src/menuHeader/ide/buatIde";
 import SampahIde from "../src/menuHeader/ide/sampah";
 import HalamanPesan from "./menuHeader/pesan/halamanPesan";
+import MemoPengajuan from "./menuHeader/memo/componentsMemo/memoPengajuan";
+import MemoBerbintang from "./menuHeader/memo/componentsMemo/memoBerbintang";
+import MemoTerkirim from "./menuHeader/memo/componentsMemo/memoTerkirim";
+import MemoArsip from "./menuHeader/memo/componentsMemo/memoArsip";
+import MemoSampah from "./menuHeader/memo/componentsMemo/memoSampah";
+import TambahMemo from "./menuHeader/memo/componentsMemo/isimemo/tambahMemo";
 
 function App() {
   return (
@@ -51,7 +56,14 @@ function App() {
         <Route path="/agenda" Component={agenda} />
         <Route path="/aktifitas" Component={aktifitas} />
         <Route path="/meeting" Component={meeting} />
-        <Route path="/memo" Component={memo} />
+        <Route path="/memo" Component={memo}>
+          <Route path="pengajuan" Component={MemoPengajuan} />
+          <Route path="berbintang" Component={MemoBerbintang} />
+          <Route path="terkirim" Component={MemoTerkirim} />
+          <Route path="arsip" Component={MemoArsip} />
+          <Route path="sampah" Component={MemoSampah} />
+          <Route path="buatMemo" Component={TambahMemo} />
+        </Route>
         <Route path="/pesan" Component={pesan}>
           <Route path="halamanPesan" Component={HalamanPesan}></Route>
           <Route path="berbintang" Component={Berbintang}></Route>
@@ -61,7 +73,6 @@ function App() {
           <Route path="sampah" Component={Sampah} />
         </Route>
         <Route path="/pesan/buatpesan" Component={BuatPesan} />
-        <Route path="/memo/tambahmemo" Component={addmemo} />
       </Routes>
       <Sidebar />
       <Footer />
