@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import Select from "react-select";
-import { addPesan } from "../../api/axios";
+import { tambahPesan } from "../../api/apiPesan";
 import { getUsers } from "../../api/apiPesan";
 import { useState } from "react";
 const BuatPesan = () => {
@@ -18,12 +18,9 @@ const BuatPesan = () => {
     }
   }, []);
   const [dataPesan, setDataPesan] = useState({
-    nama: [],
+    kepada: [],
     subjek: "",
     isipesan: "",
-    time: "5 Menit",
-    status: "1",
-    newTab: false,
   });
   // clg
   console.log("first", dataPesan);
@@ -47,8 +44,8 @@ const BuatPesan = () => {
 
   const submitPesan = async (e) => {
     e.preventDefault();
-    await addPesan(dataPesan);
-    navigate(-1);
+    await tambahPesan(dataPesan);
+    // navigate(-1);
   };
 
   const goBack = () => {

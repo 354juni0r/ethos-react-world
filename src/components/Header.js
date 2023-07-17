@@ -39,7 +39,7 @@ function Header() {
           ))}
           {/* Messages Dropdown Menu */}
           <li className="nav-item dropdown">
-            <Link className="nav-link" to="./pesan">
+            <Link className="nav-link" to="/pesan/halamanPesan">
               <i className="far fa-comments" />
               <span className="badge badge-danger navbar-badge">
                 {dataCount["COUNT(*)"]}
