@@ -20,8 +20,17 @@ export const getUsers = async () => {
 
 export const tambahPesan = async (body) => {
   try {
-    console.log("succeess");
-    const data = await baseURlPost.post("pesan/kirimpesan", body);
+    const form = new FormData();
+    form.append("kepada", body.kepada);
+    form.append("subjek", body.subjek);
+    form.append("judul", body.judul);
+    form.append("isi", body.isi);
+    const data = await baseURlPost.post("pesan/kirimpesan", form, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    console.log(data);
     return data;
   } catch (error) {
     console.log(error);

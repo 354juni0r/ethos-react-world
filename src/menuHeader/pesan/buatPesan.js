@@ -18,9 +18,10 @@ const BuatPesan = () => {
     }
   }, []);
   const [dataPesan, setDataPesan] = useState({
-    kepada: [],
+    kepada: 0,
     subjek: "",
-    isipesan: "",
+    isi: "",
+    judul: "",
   });
   // clg
   console.log("first", dataPesan);
@@ -31,9 +32,11 @@ const BuatPesan = () => {
 
   const handleChangeSelect = (selectedOptions, type) => {
     const selectedValues = selectedOptions.map((option) => option.value);
+    // contoh data singgle integer
+    const hasil = selectedValues[0];
     setDataPesan((prevData) => ({
       ...prevData,
-      [type]: selectedValues,
+      [type]: hasil,
     }));
   };
 
@@ -45,7 +48,7 @@ const BuatPesan = () => {
   const submitPesan = async (e) => {
     e.preventDefault();
     await tambahPesan(dataPesan);
-    // navigate(-1);
+    navigate(-1);
   };
 
   const goBack = () => {
@@ -154,7 +157,7 @@ const BuatPesan = () => {
                               className="basic-multi-select"
                               classNamePrefix="select"
                               onChange={(selectedOptions) =>
-                                handleChangeSelect(selectedOptions, "nama")
+                                handleChangeSelect(selectedOptions, "kepada")
                               }
                             />
                           </div>
@@ -182,7 +185,7 @@ const BuatPesan = () => {
                                 className="form-control"
                                 style={{ height: 300 }}
                                 value={dataPesan.isipesan}
-                                onChange={handlerCreateMessage("isipesan")}
+                                onChange={handlerCreateMessage("isi")}
                               />
                             </div>
                           </div>

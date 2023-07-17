@@ -14,6 +14,13 @@ export default function HalamanPesan() {
       });
     }
   }, []);
+
+  const refresh = () => {
+    getDataPesan().then((res) => {
+      sessionStorage.setItem("dataPesan", btoa(JSON.stringify(res)));
+      setDataMessage(res);
+    });
+  };
   // data fake db
   const [dataApi, setDataAPi] = useState([]);
 
@@ -44,11 +51,6 @@ export default function HalamanPesan() {
     await deletePesan(selectedIdPesan[0]);
     setSelectedIdPesan([]);
   };
-  // useEffect(() => {
-  //   getDataMemo().then((res) => {
-  //     setDataAPi(res);
-  //   });
-  // }, [selectedIdPesan]);
 
   const confirmDeletePesan = () => {
     if (window.confirm("Apakah Anda yakin ingin menghapus pesan ini?")) {
@@ -145,7 +147,11 @@ export default function HalamanPesan() {
                   </button>
                 </div>
                 {/* /.btn-group */}
-                <button type="button" className="btn btn-default btn-sm">
+                <button
+                  type="button"
+                  className="btn btn-default btn-sm"
+                  onClick={refresh}
+                >
                   <i className="fas fa-sync-alt" />
                 </button>
                 <div className="float-right">
